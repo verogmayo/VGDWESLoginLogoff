@@ -7,6 +7,7 @@
 
 //require_once 'core/libreriaValidacion.php';
 //require_once 'core/miLibreriaStatic.php';
+require_once 'config/confDBPDODes.php';
 
 $controller = [
   'inicioPublico' => 'controller/cInicioPublico.php',

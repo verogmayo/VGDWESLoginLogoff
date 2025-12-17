@@ -6,18 +6,20 @@
 
 // Se comprueba si el botón "detalles" ha sido pulsado.
 if(isset($_REQUEST['detalles'])){
+    $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
+    
     $_SESSION['paginaEnCurso'] = 'detalles';
-    $_SESSION['paginaAnterior'] ='inicioPrivado';
+    
     header('Location: indexLoginLogoff.php');
     exit;
 }
 
 // Comprobamos si el botón "cerrar" ha sido pulsado.
 if(isset($_REQUEST['cerrar'])){
+    $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
-    $_SESSION['paginaAnterior'] ='inicioPrivado';
     header('Location: indexLoginLogoff.php');
     exit;
 }
