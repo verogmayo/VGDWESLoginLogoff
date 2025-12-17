@@ -27,9 +27,6 @@
 <main>
     <section>
 
-        <div class="tituloPpl">
-            <h3>BIENVENIDO A INICIO PÚBLICO</h3>
-        </div>
 
         <div class="imagenesCentrales">
             <img src="webroot/images/AppLogin-AppMulticapa.png" alt="App Multicapa">
@@ -37,7 +34,6 @@
             <img src="webroot/images/AppLogin-DiagramaClases.png" alt="Diagrama de Clases">
             <img src="webroot/images/AppLogin-ModeloFisico.png" alt="Modelo Fisico">
         </div>
-
 
     </section>
 </main>
