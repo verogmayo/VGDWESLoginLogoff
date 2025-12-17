@@ -36,7 +36,7 @@
                 <div class="pais">
                     <p>España</p>
                     <div class="social-media">
-                        <a href="https://github.com/verogmayo/VGDWESLoginLogoffTema5"><i class='bx bxl-github' ></i></a>
+                        <a href="https://github.com/verogmayo/VGDWESLoginLogoff" target="_blank"><i class='bx bxl-github' ></i></a>
                     </div>
                 </div>
                 <div class="footerInfo">
