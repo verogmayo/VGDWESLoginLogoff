@@ -37,7 +37,7 @@ body {
     height: 100%;
     margin: 0;
     display: flex;
-    flex: 1;
+    /* flex: 1; */
     flex-direction: column;
 }
 
@@ -125,6 +125,7 @@ h1 {
     letter-spacing: -1px;
     font-weight: 700;
     width: 80%;
+    text-align: center;
 }
 .tituloCentralDetalles {
     font-size: 36px;
@@ -420,35 +421,31 @@ input {
 .imagenesCentrales {
     /* Div central */
     width: 60%; 
-    height: 500px;
+    height: 600px;
     margin: 0 auto; /* Centra el div horizontalmente */
     
     /* Cuadrícula (Grid) */
     display: grid;
-    /* Define 2 columnas de igual ancho (1fr) */
+    /* 2 columnas de igual ancho (1fr) */
     grid-template-columns: 1fr 1fr;
-    /* Define un pequeño espacio entre las imágenes */
     gap: 10px; 
 
-    /* Estilo adicional opcional para ver el límite */
     border: 2px solid #ccc; 
     padding: 10px;
-    box-sizing: border-box; /* Asegura que el padding no aumente el 60% */
 }
 
 .imagenesCentrales img {
-    /* 3. Estilos de las imágenes */
-    width: 100%; /* La imagen ocupa todo el espacio de su celda */
-    height: auto; /* Mantiene la proporción */
-    display: block; /* Elimina espacio no deseado bajo la imagen */
+    
+    width: 100%; 
+    /* height: auto;  */
+    display: block; 
     
     /* Efecto de transición suave para el zoom */
     transition: transform 0.3s ease; 
 }
 
 .imagenesCentrales img:hover {
-    /* 4. Efecto al pasar el ratón (Hover) */
-    /* Agranda la imagen al 110% de su tamaño original */
+    /* Agranda la imagen al 210% de su tamaño original */
     transform: scale(2.1); 
     /* Coloca la imagen agrandada por encima de las demás */
     position: relative;

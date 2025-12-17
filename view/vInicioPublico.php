@@ -32,12 +32,12 @@
         </div>
 
         <div class="imagenesCentrales">
-    <img src="webroot/images/imagenAppLoginLoff.png" alt="LoginLogoff1">
-    <img src="ruta/a/tu/imagen2.jpg" alt="Descripción para la imagen 2">
-    <img src="ruta/a/tu/imagen3.jpg" alt="Descripción para la imagen 3">
-    <img src="ruta/a/tu/imagen4.jpg" alt="Descripción para la imagen 4">
-</div>
-       
+            <img src="webroot/images/AppLogin-AppMulticapa.png" alt="App Multicapa">
+            <img src="webroot/images/AppLogin-MapaWeb.png" alt="Mapa Web">
+            <img src="webroot/images/AppLogin-DiagramaClases.png" alt="Diagrama de Clases">
+            <img src="webroot/images/AppLogin-ModeloFisico.png" alt="Modelo Fisico">
+        </div>
+
 
     </section>
 </main>
