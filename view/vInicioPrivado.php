@@ -14,10 +14,9 @@
 
     </div>
 
-
     <section>
         <div class="titulo">
-            <h2>BIENVENIDO A INICIO PRIVADO</h2>
+            <h3>BIENVENIDO A INICIO PRIVADO</h3>
 
         </div>
         <div class="botones">

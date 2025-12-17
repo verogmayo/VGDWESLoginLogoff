@@ -8,6 +8,7 @@
 if(isset($_REQUEST['login'])){
     //La pagina en curso es la pagina de login
     $_SESSION['paginaEnCurso'] = 'login';
+    $_SESSION['paginaAnterior'] ='inicioPublico';
     header('Location: indexLoginLogoff.php');
     exit;
 }

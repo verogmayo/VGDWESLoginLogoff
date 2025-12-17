@@ -8,6 +8,7 @@
 if(isset($_REQUEST['volver'])){
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
+    $_SESSION['paginaAnterior'] ='login';
     header('Location: indexLoginLogoff.php');
     exit;
 }
@@ -16,6 +17,7 @@ if(isset($_REQUEST['volver'])){
 if(isset($_REQUEST['enviar'])){
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
+    $_SESSION['paginaAnterior'] ='login';
     header('Location: indexLoginLogoff.php');
     exit;
 }
