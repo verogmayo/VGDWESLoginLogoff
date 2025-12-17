@@ -1,0 +1,43 @@
+<div class="header">
+    <div class="tituloCentral">
+        <p class="letras">
+            <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
+            <span>&nbsp;</span>
+            <span>P</span><span>Ú</span><span>B</span><span>L</span><span>I</span><span>C</span><span>O</span>
+        </p>
+    </div>
+    <nav>
+        <form method="post">
+            <!-- Botones de idiomas -->
+            <!-- Si no se ha iniciado cession o si se hace clic en el boton de español, el icono de la bandera de españa se hace mas grande-->
+            <button class="idioma <?php echo (!isset($_COOKIE['idioma']) || $_COOKIE['idioma'] == 'es') ? 'seleccionado' : ''; ?>"
+                type="submit" name="idioma" id="es" value="es"> <img src="webroot/images/banderaEs.png" width="20" alt="es" /> </button>
+            <!-- Si se hace clic en el icono de la bandera de GB, el icono se hace mas grande-->
+            <button class="idioma <?php echo (isset($_COOKIE['idioma']) && $_COOKIE['idioma'] == 'en') ? 'seleccionado' : ''; ?>"
+                type="submit" name="idioma" id="en" value="en"> <img src="webroot/images/banderaGb.png" width="20" alt="en" /> </button>
+            <!-- Si se hace clic en el icono de la bandera de Francia, el icono se hace mas grande-->
+            <button class="idioma <?php echo (isset($_COOKIE['idioma']) && $_COOKIE['idioma'] == 'fr') ? 'seleccionado' : ''; ?>"
+                type="submit" name="idioma" id="fr" value="fr"> <img src="webroot/images/banderaFr.png" width="20" alt="fr" /> </button>
+            <!-- Botón de login -->
+            <button class="botonSession" type="submit" name="login" id="login">login</button>
+        </form>
+    </nav>
+</div>
+
+<main>
+    <section>
+
+        <div class="tituloPpl">
+            <h3>BIENVENIDO A INICIO PÚBLICO</h3>
+        </div>
+
+        <div class="imagenesCentrales">
+    <img src="webroot/images/imagenAppLoginLoff.png" alt="LoginLogoff1">
+    <img src="ruta/a/tu/imagen2.jpg" alt="Descripción para la imagen 2">
+    <img src="ruta/a/tu/imagen3.jpg" alt="Descripción para la imagen 3">
+    <img src="ruta/a/tu/imagen4.jpg" alt="Descripción para la imagen 4">
+</div>
+       
+
+    </section>
+</main>
