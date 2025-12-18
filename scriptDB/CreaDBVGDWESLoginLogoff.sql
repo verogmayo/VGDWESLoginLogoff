@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS DBVGDWESLoginLogoff ;
 USE DBVGDWESLoginLogoff;
-CREATE TABLE IF NOT EXISTS T_01Usuario (
+CREATE TABLE IF NOT EXISTS T01_Usuario (
                      T01_CodUsuario VARCHAR(15) PRIMARY KEY,
                      -- CodUsuario:8 letras maximo y 4 ninimo PK
                      T01_Password VARCHAR(256) NOT NULL ,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS T_01Usuario (
                      T01_ImagenUsuario LONGBLOB, ( que serían fotos hastas 4GB).*/
 
 
-CREATE TABLE IF NOT EXISTS T_02Departamento (
+CREATE TABLE IF NOT EXISTS T02_Departamento (
                      T02_CodDepartamento VARCHAR(3) PRIMARY KEY, 
                      T02_DescDepartamento VARCHAR(255),
                      T02_FechaCreacionDepartamento datetime not null default now() ,
