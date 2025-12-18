@@ -127,12 +127,14 @@ h1 {
     width: 80%;
     text-align: center;
 }
+
 .tituloCentralDetalles {
     font-size: 36px;
     letter-spacing: -1px;
     font-weight: 700;
     width: 70%;
 }
+
 nav button {
     text-decoration: none;
     display: inline-block;
@@ -166,7 +168,7 @@ nav button {
     font-weight: 600;
     border-radius: 100px;
     border: var(--colorAzul);
-     margin-right: 10px;
+    margin-right: 10px;
 }
 
 #botonSessionLogin:hover {
@@ -193,6 +195,7 @@ nav button {
     background-color: var(--colorAzulHover);
     box-shadow: 0 0 10px var(--colorAzulTranparente);
 }
+
 /*Ejercicios*/
 .boton {
     background-color: var(--colorBlanco);
@@ -219,9 +222,11 @@ nav button {
     justify-content: center;
     align-self: center;
 }
+
 #botonVolverLogin:hover {
     text-decoration: underline;
 }
+
 #botonVolverDetalles {
     font-size: 16px;
     padding-top: 20px;
@@ -233,6 +238,7 @@ nav button {
     justify-content: center;
     align-self: center;
 }
+
 #botonVolverDetalles:hover {
     text-decoration: underline;
 }
@@ -246,13 +252,13 @@ nav button {
 /*---------------*/
 nav {
     & form {
-        
-            & .idioma {
-                background: transparent;
-                width: 20px;
-                height: 15px;
-            }
-        
+
+        & .idioma {
+            background: transparent;
+            width: 20px;
+            height: 15px;
+        }
+
     }
 }
 
@@ -312,7 +318,7 @@ main {
     justify-content: center;
 }
 
-.botonesDetalles{
+.botonesDetalles {
     display: flex;
 }
 
@@ -420,34 +426,45 @@ input {
 
 .imagenesCentrales {
     /* Div central */
-    width: 60%; 
+    width: 60%;
     height: 700px;
-    margin: 0 auto; /* Centra el div horizontalmente */
+    margin: 0 auto;
+    /* Centra el div horizontalmente */
     margin-bottom: 20px;
-    
+
+
     /* Cuadrícula (Grid) */
     display: grid;
     /* 2 columnas de igual ancho (1fr) */
     grid-template-columns: 1fr 1fr;
-    gap: 10px; 
-
-    border: 2px solid #ccc; 
+    gap: 10px;
     padding: 10px;
+    /* border: 2px solid #ccc;  
+    border-radius: 10px; */
+    border-style: solid;
+    border-width: 3px;
+    border-top-color: var(--colorAzul2);
+    border-right-color: var(--colorRojo);
+    border-bottom-color: var(--colorAmarillo);
+    border-left-color: var(--colorVerde);
+    border-radius: 10px;
+
+
 }
 
 .imagenesCentrales img {
-    
-    width: 100%; 
+
+    width: 100%;
     /* height: auto;  */
-    display: block; 
-    
+    display: block;
+
     /* Efecto de transición suave para el zoom */
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .imagenesCentrales img:hover {
     /* Agranda la imagen al 210% de su tamaño original */
-    transform: scale(2.1); 
+    transform: scale(2.1);
     /* Coloca la imagen agrandada por encima de las demás */
     position: relative;
     z-index: 10;
@@ -586,19 +603,21 @@ footer .pais {
 }
 
 /*Paginas de ERRORES*/
-.bodyError{
+.bodyError {
     background-image: url(../images/colorful-chalks-pastels-aesthetic-computer-00ea3ijomwnq22q3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-.headerError{
+
+.headerError {
     margin-top: 200px;
     display: flex;
     width: 100%;
     justify-content: center;
     text-align: center;
 }
-.tituloError{
+
+.tituloError {
     text-align: center;
     font-size: 40px;
 

@@ -6,7 +6,7 @@
 
 // Se cargan los archivos de configuración
 require_once  'config/confAPP.php';
-require_once  'config/confDBPDO.php';
+//require_once  'config/confDBPDO.php';
 
 // SE inicia session
 session_start();

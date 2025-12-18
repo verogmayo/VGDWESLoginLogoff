@@ -26,14 +26,11 @@
 
 <main>
     <section>
-
-
         <div class="imagenesCentrales">
             <img src="webroot/images/AppLogin-AppMulticapa.png" alt="App Multicapa">
             <img src="webroot/images/AppLogin-MapaWeb.png" alt="Mapa Web">
             <img src="webroot/images/AppLogin-DiagramaClases.png" alt="Diagrama de Clases">
             <img src="webroot/images/AppLogin-ModeloFisico.png" alt="Modelo Fisico">
         </div>
-
     </section>
 </main>
