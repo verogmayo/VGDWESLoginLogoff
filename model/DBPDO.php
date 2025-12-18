@@ -1,23 +1,23 @@
 <?php
-class DBPDO {
-   private $host = 'localhost';
-    private $db = 'tu_base_de_datos';
-    private $user = 'tu_usuario';
-    private $pass = 'tu_contraseña';
-    private $charset = 'utf8mb4';
-    private $miDB;
+/**
+* @author: Véro Grué
+* @since: 18/12/2025
+*/
 
-    private function __construct() {
+require_once __DIR__ . '/../config/confDBPDO.php';
+class DBPDO {
+
+    public static function ejecutarConsulta($sentenciaSQL, $getConexion = null) {
         try {
-        $miDB = new PDO("mysql:host=$this->host;dbname=$this->db;charset=$this->charset");
-        $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            throw new PDOException($e->getMessage(), $e->getCode());
-        }
+       $conexion = new PDO(DSN, USERNAME, PASSWORD);
+            // Para que los errores se vean claros
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $consulta = $conexion->prepare($sql);
+            $consulta->execute($parametros);
+            $usuarioDB = $consulta->fetch();
+            return $usuarioDB;
     }
 
-    public function getPDO() {
-        return $this->miDB;
     }
 }
 ?>

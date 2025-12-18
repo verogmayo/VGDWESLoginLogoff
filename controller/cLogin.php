@@ -6,7 +6,6 @@
 
 // Se comprueba si el botón "volver" ha sido pulsado.
 if(isset($_REQUEST['volver'])){
-    $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
     header('Location: indexLoginLogoff.php');
@@ -16,6 +15,7 @@ if(isset($_REQUEST['volver'])){
 // Comprobamos si el botón "enviar" ha sido pulsado.
 if(isset($_REQUEST['enviar'])){
     $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
+    //VALIDACION DE ENTRADA DEL FORMULARIO
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
     header('Location: indexLoginLogoff.php');

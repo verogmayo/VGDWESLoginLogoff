@@ -4,7 +4,7 @@
             <p class="letras">
                 <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
                 <span>&nbsp;</span>
-                <span>P</span><span>Ú</span><span>B</span><span>L</span><span>I</span><span>C</span><span>O</span>
+                <span>P</span><span>R</span><span>I</span><span>V</span><span>A</span><span>D</span><span>O</span>
             </p>
 
         </div>
