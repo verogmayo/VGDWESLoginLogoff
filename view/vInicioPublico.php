@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header"> -->
     <div class="tituloCentral">
         <p class="letras">
             <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
@@ -6,6 +6,7 @@
             <span>P</span><span>Ú</span><span>B</span><span>L</span><span>I</span><span>C</span><span>O</span>
         </p>
     </div>
+
     <nav>
         <form method="post">
             <!-- Botones de idiomas -->
@@ -22,15 +23,24 @@
             <button class="botonSession" type="submit" name="login" id="login">login</button>
         </form>
     </nav>
-</div>
+    
+<!-- </div> -->
+</header>
 
 <main>
-    <section>
-        <div class="imagenesCentrales">
+    <section class="seccionCarrusel">
+    <div class="carrusel-contenedor">
+        <input type="radio" name="rd" id="rd1" checked>
+        <input type="radio" name="rd" id="rd2">
+        <input type="radio" name="rd" id="rd3">
+        <input type="radio" name="rd" id="rd4">
+
+        <div class="photos">
             <img src="webroot/images/AppLogin-AppMulticapa.png" alt="App Multicapa">
             <img src="webroot/images/AppLogin-MapaWeb.png" alt="Mapa Web">
             <img src="webroot/images/AppLogin-DiagramaClases.png" alt="Diagrama de Clases">
             <img src="webroot/images/AppLogin-ModeloFisico.png" alt="Modelo Fisico">
         </div>
-    </section>
+    </div>
+</section>
 </main>

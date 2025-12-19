@@ -26,9 +26,8 @@
                     <span>&nbsp;</span>
                     <span>L</span><span>O</span><span>G</span><span>O</span><span>F</span><span>F</span>
                 </p>
-            </div>
-            
-        </header>
+            </div> 
+        <!-- </header> -->
             <?php require_once $view[$_SESSION['paginaEnCurso']]; ?>
        
         <footer >

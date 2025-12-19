@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS T01_Usuario (
                      T01_Password VARCHAR(256) NOT NULL ,
                      -- Password:8 letras maximo y 4 ninimo. Obligatorio
                      T01_DescUsuario VARCHAR(255),
-                     --Alfanuemrico hasta 255 caracteres.Nombre y Apeliido del usuario. Obligatorio
+                     -- Alfanuemrico hasta 255 caracteres.Nombre y Apeliido del usuario. Obligatorio
                      T01_FechaHoraUltimaConexion DATETIME DEFAULT NULL,
                      -- Fecha y hora de la ultima conexion del usuario. Valor automatico al conectarse. Obligatorio
                      T01_NumConexiones INT NOT NULL DEFAULT 0,

@@ -1,4 +1,5 @@
- <main class="mainForm">
+</header>
+<main class="mainForm">
             <section class="formulario">
                 <div class="imagen"><img src="webroot/images/logo.png" alt="logo"/>
                     <p class="pInicioSession"> Inicia Sessión en Login Logof Tema5</p>
@@ -15,10 +16,11 @@
                         <label for="passwd" >Contraseña: </label>
                     </div>
                     <div class="divBotones">
+                         <button id="botonSessionLogin" class="botonSession" type="submit" name="enviar">Enviar</button>
                         <div  class="botonVolverLogin">
                           <button id="botonVolverLogin" class="botonAzul" type="submit" name="volver">Volver</button>
                         </div>
-                        <button id="botonSessionLogin" class="botonSession" type="submit" name="enviar">Enviar</button>
+                       
                     </div>
                 </form>         
             </section>

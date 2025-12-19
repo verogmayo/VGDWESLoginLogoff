@@ -1,27 +1,78 @@
 <?php
 /**
 * @author: Véro Grué
-* @since: 15/12/2025
+* @since: 18/12/2025
 */
 
-// Se comprueba si el botón "volver" ha sido pulsado.
-if(isset($_REQUEST['volver'])){
-    // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
+require_once 'model/UsuarioPDO.php';
+require_once 'core/libreriaValidacion.php';
+require_once 'core/miLibreriaStatic.php';
+
+// Arrays para errores y respuestas
+$aErrores = [
+    'usuario' => null,
+    'passwd' => null
+];
+
+$aRespuestas = [
+    'usuario' => '',
+    'passwd' => ''
+];
+
+// Variable para controlar si la entrada es correcta
+$entradaOK = true;
+
+// Se comprueba primero el botn volver
+if (isset($_REQUEST['volver'])) {
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
     header('Location: indexLoginLogoff.php');
     exit;
 }
 
-// Comprobamos si el botón "enviar" ha sido pulsado.
-if(isset($_REQUEST['enviar'])){
-    $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
-    //VALIDACION DE ENTRADA DEL FORMULARIO
-    // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
-    $_SESSION['paginaEnCurso'] = 'inicioPrivado';
-    header('Location: indexLoginLogoff.php');
-    exit;
+//  Validación y login del boton enviar
+if (isset($_REQUEST['enviar'])) {
+    
+    // Guardar página anterior
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    
+    // Validar los campos del formulario
+    $aErrores['usuario'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['usuario'], 255, 0, 0);
+    $aErrores['passwd'] = validacionFormularios::validarPassword($_REQUEST['passwd'], 20, 2, 1, 1);
+    
+    // Guardar las respuestas para rellenar el formulario si hay algun error
+    $aRespuestas['usuario'] = $_REQUEST['usuario'];
+    $aRespuestas['passwd'] = $_REQUEST['passwd'];
+    
+    // Verificar si hay errores de validación
+    foreach ($aErrores as $valorCampo=>$msjError) {
+        if ($msjError !=null) {
+            $entradaOK = false;
+        }
+    }
+    
+    // Si la validación es correcta, validar con la BD
+    if ($entradaOK) {
+        $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['passwd']);
+
+        
+        if ($oUsuario === null) {
+            $entradaOK = false;
+        } else {
+            // Login correcto
+            $_SESSION['usuarioVGDAWAppLoginLogoff'] = $oUsuario;
+            $_SESSION['paginaEnCurso'] = 'inicioPrivado';
+            header('Location: indexLoginLogoff.php');
+            exit;
+        }
+    }
+    
+} else {
+    // Si no se ha enviado el formulario
+    $entradaOK = false;
 }
-// cargamos el layout principal, y cargará cada página a parte de la estructura principal de la web
+
+// Si hay errores o no se ha enviado, cargar el layout con el formulario
 require_once $view['layout'];
+
 
 ?>
