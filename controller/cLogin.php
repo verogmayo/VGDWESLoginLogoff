@@ -4,19 +4,18 @@
 * @since: 18/12/2025
 */
 
-require_once 'model/UsuarioPDO.php';
-require_once 'core/libreriaValidacion.php';
-require_once 'core/miLibreriaStatic.php';
+
+
 
 // Arrays para errores y respuestas
 $aErrores = [
     'usuario' => null,
-    'passwd' => null
+    'password' => null
 ];
 
 $aRespuestas = [
     'usuario' => '',
-    'passwd' => ''
+    'password' => ''
 ];
 
 // Variable para controlar si la entrada es correcta
@@ -37,11 +36,11 @@ if (isset($_REQUEST['enviar'])) {
     
     // Validar los campos del formulario
     $aErrores['usuario'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['usuario'], 255, 0, 0);
-    $aErrores['passwd'] = validacionFormularios::validarPassword($_REQUEST['passwd'], 20, 2, 1, 1);
+    $aErrores['password'] = validacionFormularios::validarPassword($_REQUEST['password'], 20, 2, 1, 1);
     
     // Guardar las respuestas para rellenar el formulario si hay algun error
     $aRespuestas['usuario'] = $_REQUEST['usuario'];
-    $aRespuestas['passwd'] = $_REQUEST['passwd'];
+    $aRespuestas['password'] = $_REQUEST['password'];
     
     // Verificar si hay errores de validación
     foreach ($aErrores as $valorCampo=>$msjError) {
@@ -52,7 +51,7 @@ if (isset($_REQUEST['enviar'])) {
     
     // Si la validación es correcta, validar con la BD
     if ($entradaOK) {
-        $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['passwd']);
+        $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['password']);
 
         
         if ($oUsuario === null) {
