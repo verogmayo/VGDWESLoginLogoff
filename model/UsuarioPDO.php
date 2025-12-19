@@ -59,7 +59,7 @@ class UsuarioPDO
                 $usuarioDB['T01_DescUsuario'],
                 $usuarioDB['T01_NumConexiones'],
                 $oFechaValida,
-                null,                                         // fechaHoraUltimaConexionAnterior (empezamos en null)
+                null,                                         // fechaHoraUltimaConexionAnterior (empieza en null)
                 $usuarioDB['T01_Perfil'],
                 $usuarioDB['T01_ImagenUsuario']
             );

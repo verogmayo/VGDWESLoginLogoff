@@ -4,7 +4,7 @@
 * @since: 18/12/2025
 */
 
- require_once 'config/confDBPDODes.php';
+ 
 class DBPDO {
 
     public static function ejecutarConsulta($sentenciaSQL, $aParametros = null) {

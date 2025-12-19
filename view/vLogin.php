@@ -2,7 +2,7 @@
 <main class="mainForm">
             <section class="formulario">
                 <div class="imagen"><img src="webroot/images/logo.png" alt="logo"/>
-                    <p class="pInicioSession"> Inicia Sessión en Login Logof Tema5</p>
+                    <p class="pInicioSession"> Inicia Sesión en Login Logoff</p>
                 </div>
                 <form class="form" action="indexLoginLogoff.php" method="post">
                     <div class="contenedorInput">

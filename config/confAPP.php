@@ -18,7 +18,7 @@ $controller = [
 
 $view = [
   'inicioPublico' => 'view/vInicioPublico.php',
-  'layout' => 'view/Layout.php',
+  'layout' => 'view/layout.php',
   'login' => 'view/vLogin.php',
   'inicioPrivado' => 'view/vInicioPrivado.php',
   'detalles' => 'view/vDetalles.php'
