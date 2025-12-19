@@ -5,8 +5,8 @@
  * @since: 15/12/2025
  */
 
-//require_once 'core/libreriaValidacion.php';
-//require_once 'core/miLibreriaStatic.php';
+require_once 'core/libreriaValidacion.php';
+require_once 'core/miLibreriaStatic.php';
 require_once 'config/confDBPDODes.php';
 
 $controller = [
@@ -18,7 +18,7 @@ $controller = [
 
 $view = [
   'inicioPublico' => 'view/vInicioPublico.php',
-  'layout' => 'view/Layout.php',
+  'layout' => 'view/layout.php',
   'login' => 'view/vLogin.php',
   'inicioPrivado' => 'view/vInicioPrivado.php',
   'detalles' => 'view/vDetalles.php'

@@ -2,9 +2,9 @@
 <main class="mainForm">
             <section class="formulario">
                 <div class="imagen"><img src="webroot/images/logo.png" alt="logo"/>
-                    <p class="pInicioSession"> Inicia Sessión en Login Logof Tema5</p>
+                    <p class="pInicioSession"> Inicia Sesión en Login Logoff</p>
                 </div>
-                <form class="form" action="" method="post">
+                <form class="form" action="indexLoginLogoff.php" method="post">
                     <div class="contenedorInput">
                         <a style='color:red'></a><br>
                         <input  name="usuario" id="usuario" type="text" placeholder=" " value=''>
@@ -12,8 +12,8 @@
                     </div>
                     <div class="contenedorInput">
                         <a style='color:red'></a><br>
-                        <input name="passwd" id="passwd" type="password" placeholder=" " value=''>
-                        <label for="passwd" >Contraseña: </label>
+                        <input name="password" id="password" type="password" placeholder=" " value=''>
+                        <label for="password" >Contraseña: </label>
                     </div>
                     <div class="divBotones">
                          <button id="botonSessionLogin" class="botonSession" type="submit" name="enviar">Enviar</button>
