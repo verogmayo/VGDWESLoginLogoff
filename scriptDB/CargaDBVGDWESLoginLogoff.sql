@@ -1,6 +1,6 @@
 USE DBVGDWESLoginLogoff;
 
-INSERT INTO T_01Usuario (T01_CodUsuario,T01_Password,T01_DescUsuario,T01_ImagenUsuario)
+INSERT INTO T01_Usuario (T01_CodUsuario,T01_Password,T01_DescUsuario,T01_ImagenUsuario)
                 VALUES
             ('vero',SHA2('veropaso',256),'Véro Grué',null),
             ('heraclio',SHA2('heracliopaso',256),'Heraclio Borbujo',null),
@@ -31,7 +31,7 @@ solo se inserta en los campos (T01_CodUsuario,T01_Password,T01_Perfil,T01_Imagen
         T01_ImagenUsuario - NULL hasta que subas una
 */
 
-INSERT INTO T_02Departamento (T02_CodDepartamento,T02_DescDepartamento,T02_FechaCreacionDepartamento,T02_VolumenDeNegocio,T02_FechaBajaDepartamento)
+INSERT INTO T02_Departamento (T02_CodDepartamento,T02_DescDepartamento,T02_FechaCreacionDepartamento,T02_VolumenDeNegocio,T02_FechaBajaDepartamento)
                  VALUES 
             ('INF','informática',now(),1285.50,NULL),
             ('LEN','Lengua',now(),2285.50,NULL),
