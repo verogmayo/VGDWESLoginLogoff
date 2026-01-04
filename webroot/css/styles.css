@@ -10,6 +10,7 @@
     --colorAmarillo: #FBBC05;
     --colorVerde: #34A853;
     --colorAzul2: #4285F4;
+    --colorAzulCuenta:#F0F4F9;
     --colorCampoObligatorio: rgb(252, 248, 204);
     --colorCampoRestringido: gainsboro;
 
@@ -41,7 +42,7 @@ body {
     flex-direction: column;
 }
 
-header {
+.headerComun {
 
     width: 100%;
     display: flex;
@@ -52,6 +53,26 @@ header {
     top: 0;
     z-index: 1000;
     background-color: white;
+}
+.headerCuenta {
+    background-color: var(--colorAzulCuenta);
+}
+
+#textoCuentaLogo {
+    margin-left: 8px;
+    font-family: "Google Sans Text", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+/* Estilo para la palabra "Cuenta" al lado del logo */
+#textoCuenta {
+    margin-left: 8px;
+    font-family: "Product Sans", Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.2px ;
+    text-indent: 0px;
 }
 
 .header {
@@ -130,13 +151,26 @@ h1 {
     font-weight: 700;
     /* width: 80%; */
     text-align: center;
+     color: var(--colorAzul2);
+     letter-spacing: 0.2px;
 }
 
 .tituloCentralDetalles {
     font-size: 36px;
     letter-spacing: -1px;
     font-weight: 700;
-    width: 70%;
+    width: 60%;
+    text-align: center;
+    color: var(--colorAzul2);
+}
+
+.tituloCentralCuenta {
+    font-size: 36px;
+    letter-spacing: -1px;
+    font-weight: 700;
+    /* width: 60%; */
+    text-align: center;
+    color: var(--colorAzul2);
 }
 
 nav button {
@@ -200,6 +234,26 @@ nav button {
     box-shadow: 0 0 10px var(--colorAzulTranparente);
 }
 
+.botonCuenta {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1260A4;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    margin-right: 5px;
+}
+.botonCuenta:hover {
+    box-shadow: 0 0 10px var(--colorAzulTranparente);
+}
+
 /*Ejercicios*/
 .boton {
     background-color: var(--colorBlanco);
@@ -231,6 +285,35 @@ nav button {
     text-decoration: underline;
 }
 
+#botonVolverCuentadiv {
+    padding-top: 0px;
+    display: flex;
+    /* align-content: center; */
+    font-weight: 600;
+    color: var(--colorAzul);
+    background: var(--colorAzulCuenta);
+    justify-content: center;
+    align-self: center;
+}
+
+#botonVolverCuentadiv:hover {
+    text-decoration: underline;
+}
+#botonCrearCuentaLogin {
+    padding-top: 20px;
+    display: flex;
+    align-content: center;
+    font-weight: 600;
+    color: var(--colorAzul);
+    background: var(--colorAzulCuenta);
+    justify-content: center;
+    align-self: center;
+}
+
+#botonCrearCuentaLogin:hover {
+    text-decoration: underline;
+}
+
 #botonVolverDetalles {
     font-size: 16px;
     padding-top: 20px;
@@ -244,6 +327,21 @@ nav button {
 }
 
 #botonVolverDetalles:hover {
+    text-decoration: underline;
+}
+#botonVolverCuenta {
+    font-size: 16px;
+    padding-top: 0px;
+    display: flex;
+    align-content: center;
+    font-weight: 600;
+    color: var(--colorAzul);
+    background: var(--colorAzulCuenta);
+    justify-content: center;
+    align-self: center;
+}
+
+#botonVolverCuenta:hover {
     text-decoration: underline;
 }
 
@@ -321,7 +419,10 @@ main {
 .botonesDetalles {
     display: flex;
 }
-
+.botonesCuenta {
+    display: flex;
+    background-color: var(--colorAzulCuenta);
+}
 /*Formulario*/
 .imagen {
     width: 50%;
@@ -351,6 +452,16 @@ main {
     background-color: white;
     display: flex;
     margin-top: 10px;
+}
+
+.formularioRegistro {
+    width: 70%;
+    height: 530px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .form {
@@ -386,13 +497,26 @@ input {
     outline: none;
 }
 
+.formularioRegistro form input {
+    height: 60px;
+    width: 75%;
+    display: block;
+    padding: 0 10px;
+    margin-bottom: 0.7rem;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+}
+
 #usuario,
-#passwd {
+#password,#nombreCompleto {
     background-color: var(--colorCampoObligatorio);
 }
 
 #usuario:not(:placeholder-shown),
-#passwd:not(:placeholder-shown) {
+#password:not(:placeholder-shown),
+#nombre:not(:placeholder-shown),
+#apellidos:not(:placeholder-shown) {
     background-color: white;
     border-color: var(--colorAzul2);
     box-shadow: 0 0 0 .5px blue;
@@ -526,6 +650,95 @@ input:focus {
     box-shadow: 0 0 0 .5px blue;
 }
 
+
+/* 
+Pagina Cuenta
+=====================================================*/
+/* Contenedor principal de la página */
+.mainCuenta{
+    background-color: var(--colorAzulCuenta);
+}
+.paginaCuentaContainer {
+    display: grid;
+    grid-template-columns: 150px 1fr; /* 150px para el menú, el resto para el contenido */
+    gap: 40px;
+    /* max-width: 1200px; */
+    /* margin: 40px 20px; */
+    padding: 0 20px;
+}
+
+/* Estilos del Menú Lateral */
+.menuLateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menuCuenta {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #5f6368;
+    border-radius: 0 25px 25px 0; /* Estilo de botón Google */
+    margin-bottom: 4px;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.menuCuenta:hover {
+    background-color: #f1f3f4;
+}
+
+.menuCuenta.activo {
+    background-color: #e8f0fe; /* Fondo azul clarito */
+    color: #1967d2; /* Texto azul Google */
+    font-weight: 500;
+}
+
+.menuCuenta .material-icons {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+/* Estilos de la Tabla de Datos (Grid de 3 columnas internas) */
+.tablaDatosGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    background: white;
+}
+
+.filaDato {
+    display: grid;
+    grid-template-columns: 240px 1fr 60px; /* Ancho fijo para etiquetas */
+    padding: 24px;
+    border-bottom: 1px solid #dadce0;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filaDato:hover { background-color: #f8f9fa; }
+.filaDato:last-child { border-bottom: none; }
+
+.etiqueta {
+    color: #5f6368;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+
+.valor {
+    color: #202124;
+    font-size: 16px;
+}
+
+.accion {
+    text-align: right;
+    color: #5f6368;
+    font-size: 24px;
+}
+/* Final Cuenta=====================================================*/
 
 
 /*Estilos para las variables superGlobales*/

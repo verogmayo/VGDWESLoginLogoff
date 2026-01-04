@@ -13,7 +13,9 @@ $controller = [
   'inicioPublico' => 'controller/cInicioPublico.php',
   'login' => 'controller/cLogin.php',
   'inicioPrivado' => 'controller/cInicioPrivado.php',
-  'detalles' => 'controller/cDetalles.php'
+  'detalles' => 'controller/cDetalles.php',
+  'registro' => 'controller/cRegistro.php',
+  'cuenta' => 'controller/cCuenta.php'
 ];
 
 $view = [
@@ -21,7 +23,9 @@ $view = [
   'layout' => 'view/layout.php',
   'login' => 'view/vLogin.php',
   'inicioPrivado' => 'view/vInicioPrivado.php',
-  'detalles' => 'view/vDetalles.php'
+  'detalles' => 'view/vDetalles.php',
+  'registro' => 'view/vRegistro.php',
+  'cuenta' => 'view/vCuenta.php'
 ];
 ?>
 

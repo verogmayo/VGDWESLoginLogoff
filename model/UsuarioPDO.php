@@ -106,4 +106,60 @@ class UsuarioPDO
         date_default_timezone_set('Europe/Madrid');
         $oUsuario->setFechaHoraUltimaConexion(new DateTime());
     }
+
+    /**
+     * Crea un nuevo usuario en la base de datos
+     * @param string $codUsuario
+     * @param string $password
+     * @param string $descUsuario
+     * @return Usuario|null El objeto usuario si se crea con éxito, null si falla
+     */
+    public static function crearUsuario($codUsuario, $password, $descUsuario) {
+        $oUsuario = null;
+
+        // SQL para insertar el nuevo registro
+        // El perfil por defecto debe ser 'usuario'
+        $sql = <<<SQL
+            INSERT INTO T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil) 
+            VALUES (:usuario, SHA2(:password, 256), :descripcion, 'usuario')
+        SQL;
+
+        try {
+            $consulta = DBPDO::ejecutarConsulta($sql, [
+                ':usuario' => $codUsuario,
+                ':password' => $codUsuario . $password, 
+                ':descripcion' => $descUsuario
+            ]);
+
+            if ($consulta) {
+                // Si la inserción tiene éxito, se valida al usuario para obtener el objeto completo
+                // (y se rellena las fechas iniciales y el número de conexiones)
+                $oUsuario = self::validarUsuario($codUsuario, $password);
+            }
+        } catch (Exception $e) {
+            return null;
+        }
+
+        return $oUsuario;
+    }
+
+    /**
+     * Comprueba si un código de usuario ya existe en la BD
+     * @param string $codUsuario
+     * @return boolean true si existe, false si no
+     */
+    public static function validarCodigoNoExiste($codUsuario) {
+        $existe = false;
+        $sql = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario = :usuario";
+        
+        try {
+            $consulta = DBPDO::ejecutarConsulta($sql, [':usuario' => $codUsuario]);
+            if ($consulta->rowCount() > 0) {
+                $existe = true;
+            }
+        } catch (Exception $e) {
+            $existe = false;
+        }
+        return $existe;
+    }
 }
