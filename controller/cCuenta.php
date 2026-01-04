@@ -1,7 +1,7 @@
 <?php
 /**
 * @author: Véro Grué
-* @since: 03/01/2026
+* @since: 04/01/2026
 */
 
 // Se comprueba si el botón "volver" ha sido pulsado.
@@ -22,11 +22,11 @@ if(isset($_REQUEST['cerrar'])){
     exit;
 }
 
-// Se comprueba si el botón "cuenta" ha sido pulsado.
-if(isset($_REQUEST['cuenta'])){
+// Se comprueba si el botón "cambiarPassword" ha sido pulsado.
+if(isset($_REQUEST['cambiarPassword'])){
     $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
-    $_SESSION['paginaEnCurso'] = 'cuenta';
+    $_SESSION['paginaEnCurso'] = 'cambiarPassword';
     header('Location: indexLoginLogoff.php');
     exit;
 }
