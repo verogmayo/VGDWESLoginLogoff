@@ -56,12 +56,12 @@ if (isset($_REQUEST['enviar'])) {
     
     // Si la validación es correcta, validar con la BD
     if ($entradaOK) {
-        // 1. Comprobar si el código de usuario ya existe
+        // Se comprueba si el código de usuario ya existe
         if (UsuarioPDO::validarCodigoNoExiste($_REQUEST['usuario'])) {
             $aErrores['usuario'] = "El nombre de usuario ya existe.";
             $entradaOK = false;
         } else {
-            // 2. Si no existe, se crea el nuevo usuario
+            // Si no existe, se crea el nuevo usuario
             $oUsuario = UsuarioPDO::crearUsuario(
                 $_REQUEST['usuario'], 
                 $_REQUEST['password'], 

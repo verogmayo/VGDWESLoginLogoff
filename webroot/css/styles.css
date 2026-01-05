@@ -533,7 +533,7 @@ input {
 
 #usuario,
 #password,
-#nombreCompleto {
+#nombreCompleto,#passwordActual,#confirmaPassword {
     background-color: var(--colorCampoObligatorio);
 }
 
