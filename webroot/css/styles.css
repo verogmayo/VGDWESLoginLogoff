@@ -10,6 +10,8 @@
     --colorAmarillo: #FBBC05;
     --colorVerde: #34A853;
     --colorAzul2: #4285F4;
+    --colorAzulCuenta: #F0F4F9;
+    --colorAzulCuentaHover: #E7EDF8;
     --colorCampoObligatorio: rgb(252, 248, 204);
     --colorCampoRestringido: gainsboro;
 
@@ -41,7 +43,7 @@ body {
     flex-direction: column;
 }
 
-header {
+.headerComun {
 
     width: 100%;
     display: flex;
@@ -52,6 +54,28 @@ header {
     top: 0;
     z-index: 1000;
     background-color: white;
+}
+
+.headerCuenta {
+    background-color: var(--colorAzulCuenta);
+}
+
+#textoCuentaLogo {
+    margin-left: 8px;
+    font-family: "Google Sans Text", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+/* Estilo para la palabra "Cuenta" al lado del logo */
+#textoCuenta {
+    margin-left: 8px;
+    font-family: "Product Sans", Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    text-indent: 0px;
 }
 
 .header {
@@ -130,13 +154,26 @@ h1 {
     font-weight: 700;
     /* width: 80%; */
     text-align: center;
+    color: var(--colorAzul2);
+    letter-spacing: 0.2px;
 }
 
 .tituloCentralDetalles {
     font-size: 36px;
     letter-spacing: -1px;
     font-weight: 700;
-    width: 70%;
+    width: 60%;
+    text-align: center;
+    color: var(--colorAzul2);
+}
+
+.tituloCentralCuenta {
+    font-size: 36px;
+    letter-spacing: -1px;
+    font-weight: 700;
+    /* width: 60%; */
+    text-align: center;
+    color: var(--colorAzul2);
 }
 
 nav button {
@@ -200,6 +237,27 @@ nav button {
     box-shadow: 0 0 10px var(--colorAzulTranparente);
 }
 
+.botonCuenta {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1260A4;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    margin-right: 5px;
+}
+
+.botonCuenta:hover {
+    box-shadow: 0 0 10px var(--colorAzulTranparente);
+}
+
 /*Ejercicios*/
 .boton {
     background-color: var(--colorBlanco);
@@ -231,6 +289,51 @@ nav button {
     text-decoration: underline;
 }
 
+#botonCrearCuenta {
+    padding-top: 20px;
+    display: flex;
+    align-content: center;
+    font-weight: 600;
+    color: var(--colorAzul);
+    background: white;
+    justify-content: center;
+    align-self: center;
+}
+
+#botonCrearCuenta:hover {
+    text-decoration: underline;
+}
+
+#botonVolverCuentadiv {
+    padding-top: 0px;
+    display: flex;
+    /* align-content: center; */
+    font-weight: 600;
+    color: var(--colorAzul);
+    background: var(--colorAzulCuenta);
+    justify-content: center;
+    align-self: center;
+}
+
+#botonVolverCuentadiv:hover {
+    text-decoration: underline;
+}
+
+#botonCrearCuentaLogin {
+    padding-top: 20px;
+    display: flex;
+    align-content: center;
+    font-weight: 600;
+    color: var(--colorAzul);
+    background: var(--colorAzulCuenta);
+    justify-content: center;
+    align-self: center;
+}
+
+#botonCrearCuentaLogin:hover {
+    text-decoration: underline;
+}
+
 #botonVolverDetalles {
     font-size: 16px;
     padding-top: 20px;
@@ -244,6 +347,22 @@ nav button {
 }
 
 #botonVolverDetalles:hover {
+    text-decoration: underline;
+}
+
+#botonVolverCuenta {
+    font-size: 16px;
+    padding-top: 0px;
+    display: flex;
+    align-content: center;
+    font-weight: 600;
+    color: var(--colorAzul);
+    background: var(--colorAzulCuenta);
+    justify-content: center;
+    align-self: center;
+}
+
+#botonVolverCuenta:hover {
     text-decoration: underline;
 }
 
@@ -322,6 +441,11 @@ main {
     display: flex;
 }
 
+.botonesCuenta {
+    display: flex;
+    background-color: var(--colorAzulCuenta);
+}
+
 /*Formulario*/
 .imagen {
     width: 50%;
@@ -351,6 +475,21 @@ main {
     background-color: white;
     display: flex;
     margin-top: 10px;
+}
+
+.formularioRegistro {
+    width: 70%;
+    height: 530px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.errorRegistroDiv{
+    color: var(--colorRojo);
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .form {
@@ -386,13 +525,29 @@ input {
     outline: none;
 }
 
+.formularioRegistro form input {
+    height: 60px;
+    width: 75%;
+    display: block;
+    padding: 0 10px;
+    margin-bottom: 0.7rem;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+}
+
 #usuario,
-#passwd {
+#password,
+#nombreCompleto,
+#passwordActual,
+#confirmaPassword {
     background-color: var(--colorCampoObligatorio);
 }
 
 #usuario:not(:placeholder-shown),
-#passwd:not(:placeholder-shown) {
+#password:not(:placeholder-shown),
+#nombre:not(:placeholder-shown),
+#apellidos:not(:placeholder-shown) {
     background-color: white;
     border-color: var(--colorAzul2);
     box-shadow: 0 0 0 .5px blue;
@@ -409,7 +564,7 @@ input {
         /*Para que el cursor sea una mano*/
         border-radius: 5px;
         margin-top: 20px;
-        
+
 
         & .botonSession {
             background-color: var(--colorAzul);
@@ -425,9 +580,9 @@ input {
 
 .divBotones {
     display: flex;
-        flex-direction: row-reverse;
-        justify-content: end;
-        padding-right: 30px;
+    flex-direction: row-reverse;
+    justify-content: end;
+    padding-right: 30px;
 }
 
 /*Imagenes centrales*/
@@ -440,24 +595,30 @@ input {
 
 .carrusel-contenedor {
     position: relative;
-    width: 800px; /* Ajusta el ancho que quieras que tenga el visor */
-    height: 500px; /* Ajusta el alto */
-    overflow: hidden; /* Oculta las fotos que no están activas */
+    width: 800px;
+    /* Ajusta el ancho que quieras que tenga el visor */
+    height: 500px;
+    /* Ajusta el alto */
+    overflow: hidden;
+    /* Oculta las fotos que no están activas */
     border: 3px solid var(--colorAzul2);
     border-radius: 10px;
 }
 
 .photos {
     display: flex;
-    width: 400%; /* 4 fotos = 400% de ancho */
+    width: 400%;
+    /* 4 fotos = 400% de ancho */
     height: 100%;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .photos img {
-    width: 25%; /* Cada foto ocupa 1/4 del contenedor (100% / 4) */
+    width: 25%;
+    /* Cada foto ocupa 1/4 del contenedor (100% / 4) */
     height: 100%;
-    object-fit: contain; /* Para que los diagramas no se deformen */
+    object-fit: contain;
+    /* Para que los diagramas no se deformen */
     background-color: white;
 }
 
@@ -469,7 +630,8 @@ input {
     height: 20px;
     cursor: pointer;
     z-index: 10;
-    appearance: none; /* Oculta el radio original */
+    appearance: none;
+    /* Oculta el radio original */
     background-color: rgba(0, 0, 0, 0.3);
     border: 2px solid white;
     border-radius: 50%;
@@ -477,10 +639,21 @@ input {
 }
 
 /* Posicionamiento horizontal de los botones */
-#rd1 { left: 40%; }
-#rd2 { left: 46%; }
-#rd3 { left: 52%; }
-#rd4 { left: 58%; }
+#rd1 {
+    left: 40%;
+}
+
+#rd2 {
+    left: 46%;
+}
+
+#rd3 {
+    left: 52%;
+}
+
+#rd4 {
+    left: 58%;
+}
 
 /* Color cuando están seleccionados */
 .carrusel-contenedor input:checked {
@@ -490,10 +663,21 @@ input {
 
 
 /* Cuando el radio X está marcado, mueve el div .photos */
-#rd1:checked ~ .photos { transform: translateX(0%); }
-#rd2:checked ~ .photos { transform: translateX(-25%); }
-#rd3:checked ~ .photos { transform: translateX(-50%); }
-#rd4:checked ~ .photos { transform: translateX(-75%); }
+#rd1:checked~.photos {
+    transform: translateX(0%);
+}
+
+#rd2:checked~.photos {
+    transform: translateX(-25%);
+}
+
+#rd3:checked~.photos {
+    transform: translateX(-50%);
+}
+
+#rd4:checked~.photos {
+    transform: translateX(-75%);
+}
 
 /* 
 Login
@@ -527,6 +711,256 @@ input:focus {
 }
 
 
+/* 
+Pagina Cuenta
+=====================================================*/
+/* Contenedor principal de la página */
+.mainCuenta {
+    background-color: var(--colorAzulCuenta);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.cabeceraPerfil {
+    margin-top: 40px;
+}
+
+.paginaCuentaContainer {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    /* 150px para el menú, el resto para el contenido */
+    gap: 60px;
+    margin: 40px 20px;
+    padding: 0 10px;
+    width: 100%;
+}
+
+/* .contenidoPerfil {
+    width: 70%;
+} */
+
+/* Estilos del Menú Lateral */
+.menuLateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    /* .menuLateral {
+        display: none;
+    } */
+}
+
+.menuCuenta {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #5f6368;
+    border-radius: 25px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    width: 230px;
+}
+
+.menuCuenta:hover {
+    background-color: #f1f3f4;
+}
+
+.menuCuenta.activo {
+    background-color: white;
+    font-weight: 500;
+}
+
+.iconoMenu {
+    margin-right: 2px;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: #6DD58C;
+    color: #0F5223;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+}
+
+.iconoMenu.li2 {
+    background-color: #5f6368;
+    color: black;
+}
+
+.iconoMenu.li3 {
+    background-color: pink;
+    color: rebeccapurple;
+}
+
+#botonMenuCuenta {
+    margin-left: 0px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#botonMenuCuenta:hover {
+    background-color: white;
+}
+
+#passwordCuenta {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de la Tabla de Datos (Grid de 3 columnas internas) */
+.tablaDatosGrid {
+    display: grid;
+    grid-template-columns: 1.5fr 7fr 1.5fr;
+    border-radius: 20px;
+    align-content: center;
+}
+
+.filaDato {
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    /* Ancho fijo para etiquetas */
+    padding: 18px 24px;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 2px;
+    background: white;
+    border-radius: 5px 5px 5px 5px;
+    grid-column: 2/3;
+}
+
+.filaDato:hover {
+    background-color: var(--colorAzulCuentaHover);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.filaDato:first-child {
+    border-radius: 20px 20px 5px 5px;
+
+    & .icono {
+        & .inicialGrande {
+            font-weight: 700;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            background-color: #1260A4;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+        }
+
+    }
+}
+
+
+.filaDato:last-child {
+    border-radius: 5px 5px 20px 20px;
+}
+
+
+.etiqueta {
+    color: #5f6368;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    grid-column: 1/1;
+}
+
+
+.valor {
+    color: #202124;
+    font-size: 16px;
+    grid-column: 1/1;
+}
+
+.icono {
+    text-align: right;
+    color: #5f6368;
+    font-size: 24px;
+    grid-column: -2/-1;
+    grid-row: 1/3;
+}
+
+/* Boton comabiar contraseña en Cuenta=======*/
+
+/* trasición de la flecha */
+.flecha {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Rotacion flecha */
+.filaDesplegable:hover .flecha {
+    transform: rotate(90deg);
+}
+
+/*  boton oculto */
+.desplegable {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin-top 0.4s ease;
+    opacity: 0;
+}
+
+/* se muestra el boton con el hover */
+.filaDesplegable:hover .desplegable {
+    max-height: 100px;
+    margin-top: 15px;
+    opacity: 1;
+}
+
+
+.botonCambiarPswd {
+    background-color: transparent;
+    color: var(--colorAzul2);
+    border: 1px solid var(--colorAzul2);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.botonCambiarPswd:hover {
+    background-color: #f6fafe;
+    border-color: #d2e3fc;
+}
+
+.mensajeExitoDiv {
+    background-color: #e6f4ea;
+    color: #137333;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size: 14px;
+    border: 1px solid #ceead6;
+}
+.mensajeExitoP {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Final Cuenta=====================================================*/
+
+
+/* Página Borrar=====================================================*/
+.textoBorrarUsuario {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    padding: 40px;
+}
+
+.errorBorrar {
+    color: var(--colorRojo);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Fin página Borrar=====================================================*/
 
 /*Estilos para las variables superGlobales*/
 section {

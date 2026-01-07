@@ -1,7 +1,7 @@
 <?php
 /**
 * @author: Véro Grué
-* @since: 16/12/2025
+* @since: 03/01/2026
 */
 
 // Se comprueba si el botón "volver" ha sido pulsado.
@@ -18,6 +18,15 @@ if(isset($_REQUEST['cerrar'])){
     $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
     // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
+// Se comprueba si el botón "cuenta" ha sido pulsado.
+if(isset($_REQUEST['cuenta'])){
+    $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
+    // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
+    $_SESSION['paginaEnCurso'] = 'cuenta';
     header('Location: indexLoginLogoff.php');
     exit;
 }

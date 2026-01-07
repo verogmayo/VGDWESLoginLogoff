@@ -48,7 +48,7 @@ class UsuarioPDO
             if (!$usuarioDB) {
                 return null;
             }
-            
+
             //Se convierte la fecha en datetime
             $fechaBD = $usuarioDB['T01_FechaHoraUltimaConexion'];
             $oFechaValida = ($fechaBD) ? new DateTime($fechaBD) : null;
@@ -105,5 +105,119 @@ class UsuarioPDO
         // Establecer la nueva fecha de conexión (ahora)
         date_default_timezone_set('Europe/Madrid');
         $oUsuario->setFechaHoraUltimaConexion(new DateTime());
+    }
+
+    /**
+     * Crea un nuevo usuario en la base de datos
+     * @param string $codUsuario
+     * @param string $password
+     * @param string $descUsuario
+     * @return Usuario|null El objeto usuario si se crea con éxito, null si falla
+     */
+    public static function crearUsuario($codUsuario, $password, $descUsuario)
+    {
+        $oUsuario = null;
+
+        // SQL para insertar el nuevo registro
+        // El perfil por defecto debe ser 'usuario'
+        $sql = <<<SQL
+            INSERT INTO T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil) 
+            VALUES (:usuario, SHA2(:password, 256), :descripcion, 'usuario')
+        SQL;
+
+        try {
+            $consulta = DBPDO::ejecutarConsulta($sql, [
+                ':usuario' => $codUsuario,
+                ':password' => $codUsuario . $password,
+                ':descripcion' => $descUsuario
+            ]);
+
+            if ($consulta) {
+                // Si la inserción tiene éxito, se valida al usuario para obtener el objeto completo
+                // (y se rellena las fechas iniciales y el número de conexiones)
+                $oUsuario = self::validarUsuario($codUsuario, $password);
+            }
+        } catch (Exception $e) {
+            return null;
+        }
+
+        return $oUsuario;
+    }
+
+    /**
+     * Comprueba si un código de usuario ya existe en la BD
+     * @param string $codUsuario
+     * @return boolean true si existe, false si no
+     */
+    public static function validarCodigoNoExiste($codUsuario)
+    {
+        $existe = false;
+        $sql = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario = :usuario";
+
+        try {
+            //si la consulta devuelve alguna fila es que el codigo ya existe
+            $consulta = DBPDO::ejecutarConsulta($sql, [':usuario' => $codUsuario]);
+            if ($consulta->rowCount() > 0) {
+                $existe = true;
+            }
+        } catch (Exception $e) {
+            $existe = false;
+        }
+        return $existe;
+    }
+
+    /**
+     * Cambia la contraseña de un usuario existente
+     * @param Usuario $oUsuario Objeto del usuario actual
+     * @param string $nuevaPassword Nueva contraseña sin encriptar
+     * @return Usuario|null El objeto usuario actualizado o null si falla
+     */
+    public static function cambiarPassword($oUsuario, $nuevaPassword)
+    {
+        $sql = <<<SQL
+        UPDATE T01_Usuario SET 
+            T01_Password = SHA2(:password, 256)
+        WHERE T01_CodUsuario = :usuario
+    SQL;
+
+        try {
+            $consulta = DBPDO::ejecutarConsulta($sql, [
+                ':usuario' => $oUsuario->getCodUsuario(),
+                ':password' => $oUsuario->getCodUsuario() . $nuevaPassword
+            ]);
+
+            if ($consulta) {
+                // Se actualiza la contraseña en el objeto existente para que coincida con la BD
+                $oUsuario->setPassword(hash('sha256', $oUsuario->getCodUsuario() . $nuevaPassword));
+                return $oUsuario;
+            }
+        } catch (Exception $e) {
+            return null;
+        }
+        return null;
+    }
+
+    /**
+     * Elimina un usuario de la base de datos
+     * @param Usuario $oUsuario Objeto del usuario a eliminar
+     * @return boolean True si se borró correctamente, false si no se borró
+     */
+    public static function borrarUsuario($oUsuario)
+    {
+        $sql = "DELETE FROM T01_Usuario WHERE T01_CodUsuario = :usuario";
+
+        try {
+            $consulta = DBPDO::ejecutarConsulta($sql, [
+                ':usuario' => $oUsuario->getCodUsuario()
+            ]);
+
+            // rowCount() para ver si se borro la fila
+            if ($consulta->rowCount() > 0) {
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+        return false;
     }
 }

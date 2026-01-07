@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @author: Véro Grué
+ * @since: 05/01/2026
+ */
+
+// Si se hace clic en el botón volver no sigue y redirige a la página de inicio
+if (isset($_REQUEST['volver'])) {
+    $_SESSION['paginaEnCurso'] = 'cuenta';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
+
+//  Validación y login del boton enviar
+if (isset($_REQUEST['borrar'])) {
+
+    // Guardar página anterior
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+
+    $errorBorrar = "";
+    //Si el usuario se borra correctamente, se vuelve a inicio público y sino se muestra un mensaje de error
+    if (UsuarioPDO::borrarUsuario($_SESSION['usuarioVGDAWAppLoginLogoff'])) {
+        //Se limpia el array de sesión
+        $_SESSION = array();
+        //Se destruye la sesión
+        session_destroy();
+        //Redirige a la página de inicio público     
+        //$_SESSION['paginaEnCurso'] = 'inicioPublico';
+        header('Location: indexLoginLogoff.php');
+        exit;
+    } else {
+        //Sino se ha podido borrar sale el mensaje
+        $errorBorrar="El usuario no se ha podido borrar. Por favor, intentalo más tarde";
+    };
+}
+
+// Si hay errores o no se ha enviado, cargar el layout 
+require_once $view['layout'];
+?>

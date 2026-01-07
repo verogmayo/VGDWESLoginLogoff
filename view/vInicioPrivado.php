@@ -1,18 +1,11 @@
-
-    <!-- <div class="header"> -->
         <div class="tituloCentral">
-            <p class="letras">
-                <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
-                <span>&nbsp;</span>
-                <span>P</span><span>R</span><span>I</span><span>V</span><span>A</span><span>D</span><span>O</span>
-            </p>
+                <p>INICIO PRIVADO</p>
 
         </div>
-        <form action="">
+        <form class="botonesDetalles" action="">
+            <button id="botonCuenta" class="botonCuenta" type="submit" name="cuenta"><?php echo $_SESSION['inicialVGDAW']; ?></button>
             <button id="botonSessionIPrivado" class="botonSession" type="submit" name="cerrar">Cerrar Sessión</button>
         </form>
-
-    <!-- </div> -->
 </header>
 <main>
     <section>

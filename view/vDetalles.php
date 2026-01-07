@@ -1,29 +1,19 @@
-<main>
-    <div class="header">
+<!-- <div class="header"> -->
         <div class="tituloCentralDetalles">
-
-
+            <h3>Detalles del Sistema</h3>
         </div>
-
         <form class="botonesDetalles">
             <div class="botonVolverLogin">
                 <button id="botonVolverDetalles" class="botonAzul" type="submit" name="volver">Volver</button>
             </div>
+            <button id="botonCuenta" class="botonCuenta" type="submit" name="cuenta"><?php echo $_SESSION['inicialVGDAW']; ?></button>
             <button id="botonSessionIPrivado" class="botonSession" type="submit" name="cerrar">Cerrar Sessión</button>
         </form>
-
-    </div>
-    <section>
-
-
-        <div class="titulo">
-
-        </div>
+    <!-- </div>   -->
+</header>
+<main>
+    <section class="sectionDetalles">
         <?php
-
-
-
-
         //Contenido de la variable $_SESSION-------------------------------------------------------
         echo '<h3>Contenido de la variable $_SESSION</h3><br>';
         echo ' <article class="articleSG">';

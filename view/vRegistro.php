@@ -1,26 +1,23 @@
 </header>
 <main class="mainForm">
-    <?php if (isset($_SESSION['errorRegistro'])): ?>
-        <div class="errorRegistroDiv">
-            <?php
-            echo $_SESSION['errorRegistro'];
-            // Se borra para que no se repita
-            unset($_SESSION['errorRegistro']);
-            ?>
-        </div>
-    <?php endif; ?>
-    <section class="formulario">
+    <section class="formularioRegistro">
         <div class="imagen"><img src="webroot/images/logoV2.png" alt="logo" />
             <p class="pInicioSession"> Inicia Sesión en Login Logoff</p>
         </div>
         <form class="form" action="indexLoginLogoff.php" method="post">
             <div class="contenedorInput">
-                <a style='color:red'></a><br>
+                <a style='color:red'><?php echo $aErrores['usuario'] ?></a><br>
                 <input name="usuario" id="usuario" type="text" placeholder=" " value=''>
                 <label for="usuario">Usuario:</label>
             </div>
             <div class="contenedorInput">
-                <a style='color:red'></a><br>
+                <a style='color:red'><?php echo $aErrores['nombreCompleto'] ?></a><br>
+                <input name="nombreCompleto" id="nombreCompleto" type="text" placeholder=" " value=''>
+                <label for="nombreCompleto">Nombre Completo:</label>
+            </div>
+
+            <div class="contenedorInput">
+                <a style='color:red'><?php echo $aErrores['password'] ?></a><br>
                 <input name="password" id="password" type="password" placeholder=" " value=''>
                 <label for="password">Contraseña: </label>
             </div>
@@ -29,7 +26,7 @@
                 <div class="botonVolverLogin">
                     <button id="botonVolverLogin" class="botonAzul" type="submit" name="volver">Volver</button>
                 </div>
-                <button id="botonCrearCuenta" class="botonAzul" type="submit" name="crearCuenta">Crear Cuenta</button>
+
             </div>
         </form>
     </section>
