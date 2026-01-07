@@ -1,7 +1,16 @@
 </header>
 <main class="mainForm">
+    <?php if (isset($_SESSION['errorRegistro'])): ?>
+        <div class="errorRegistroDiv">
+            <?php
+            echo $_SESSION['errorRegistro'];
+            // Se borra para que no se repita
+            unset($_SESSION['errorRegistro']);
+            ?>
+        </div>
+    <?php endif; ?>
     <section class="formulario">
-        <div class="imagen"><img src="webroot/images/logo.png" alt="logo" />
+        <div class="imagen"><img src="webroot/images/logoV2.png" alt="logo" />
             <p class="pInicioSession"> Inicia Sesión en Login Logoff</p>
         </div>
         <form class="form" action="indexLoginLogoff.php" method="post">

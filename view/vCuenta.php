@@ -11,6 +11,18 @@
 
 </header>
 <main class="mainCuenta">
+    <!-- Si existe el mensaje de exito en la session, se muestra  -->
+    <?php if (isset($_SESSION['mensajeExito'])): ?>
+        <div class="mensajeExitoDiv">
+            <p class="mensajeExitoP">
+                <?php
+                echo $_SESSION['mensajeExito'];
+                //SE borra el mensaje sino saldría siempre
+                unset($_SESSION['mensajeExito']);
+                ?>
+            </p>
+        </div>
+    <?php endif; ?>
     <div class="cabeceraPerfil">
         <h1>Información personal</h1>
 
@@ -31,6 +43,17 @@
                             Seguridad
                         </a>
                     </li>
+                    <form method="post">
+                        <li>
+                            <button type="submit" name="borrarCuenta" class="menuCuenta"
+                                id="botonMenuCuenta">
+                                <span class="iconoMenu li3"><i class="fa-solid fa-eraser"></i></span>
+                                Borrar cuenta
+                            </button>
+
+                        </li>
+                    </form>
+
                 </ul>
             </nav>
         </aside>

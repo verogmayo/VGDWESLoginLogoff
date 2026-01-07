@@ -32,7 +32,7 @@
         <input type="radio" name="rd" id="rd4">
 
         <div class="photos">
-            <img src="webroot/images/AppLogin-AppMulticapa.png" alt="App Multicapa">
+            <img src="webroot/images/AppLogin-AppMulticapaV2.png" alt="App Multicapa">
             <img src="webroot/images/AppLogin-MapaWeb.png" alt="Mapa Web">
             <img src="webroot/images/AppLogin-DiagramaClases.png" alt="Diagrama de Clases">
             <img src="webroot/images/AppLogin-ModeloFisico.png" alt="Modelo Fisico">

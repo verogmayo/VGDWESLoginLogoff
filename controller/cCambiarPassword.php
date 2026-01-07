@@ -2,7 +2,7 @@
 
 /**
  * @author: Véro Grué
- * @since: 03/01/2025
+ * @since: 03/01/2026
  */
 
 // Si se hace clic en el botón volver no sigue y redirige al ceunta
@@ -82,11 +82,14 @@ if (isset($_REQUEST['enviar'])) {
         // si se ha cambiado correctamente, se actualiza la sesión y se redirige a la página cuenta
         if ($oUsuarioModificado != null) {
             $_SESSION['usuarioVGDAWAppLoginLogoff'] = $oUsuarioModificado;
+            //para poner un mensaje de contraseña cambiada, en la pagina cuenta, hay que guardar el valoe en sesion porque sino se pierde al hacer el cmabio de pagina. 
+            $_SESSION['mensajeExito']= "Contraseña cambiada correctamente.";
             $_SESSION['paginaEnCurso'] = 'cuenta';
             header('Location: indexLoginLogoff.php');
             exit;
         } else {
             $entradaOK = false;
+            $errorCambioContraseña="No se ha podido cambiar la contraseña. Por favor, inténtalo de nuevo.";
         }
     }
 } else {

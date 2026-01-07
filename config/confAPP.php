@@ -16,7 +16,8 @@ $controller = [
   'detalles' => 'controller/cDetalles.php',
   'registro' => 'controller/cRegistro.php',
   'cuenta' => 'controller/cCuenta.php',
-  'cambiarPassword' => 'controller/cCambiarPassword.php'
+  'cambiarPassword' => 'controller/cCambiarPassword.php',
+  'borrarCuenta' => 'controller/cBorrarCuenta.php'
 ];
 
 $view = [
@@ -27,7 +28,8 @@ $view = [
   'detalles' => 'view/vDetalles.php',
   'registro' => 'view/vRegistro.php',
   'cuenta' => 'view/vCuenta.php',
-  'cambiarPassword' => 'view/vCambiarPassword.php'
+  'cambiarPassword' => 'view/vCambiarPassword.php',
+  'borrarCuenta' => 'view/vBorrarCuenta.php'
 ];
 ?>
 

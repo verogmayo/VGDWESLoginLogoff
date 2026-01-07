@@ -486,6 +486,11 @@ main {
     margin-top: 5px;
     margin-bottom: 10px;
 }
+.errorRegistroDiv{
+    color: var(--colorRojo);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
 
 .form {
     padding-top: 75px;
@@ -533,7 +538,9 @@ input {
 
 #usuario,
 #password,
-#nombreCompleto,#passwordActual,#confirmaPassword {
+#nombreCompleto,
+#passwordActual,
+#confirmaPassword {
     background-color: var(--colorCampoObligatorio);
 }
 
@@ -751,7 +758,6 @@ Pagina Cuenta
     text-decoration: none;
     color: #5f6368;
     border-radius: 25px;
-    /* Estilo de botón Google */
     margin-bottom: 4px;
     font-size: 14px;
     width: 230px;
@@ -765,20 +771,36 @@ Pagina Cuenta
     background-color: white;
     font-weight: 500;
 }
+
 .iconoMenu {
     margin-right: 2px;
     font-size: 15px;
     border-radius: 50%;
     background-color: #6DD58C;
-    color:#0F5223;
+    color: #0F5223;
     height: 30px;
     width: 30px;
     line-height: 30px;
 }
 
-.iconoMenu.li2{
+.iconoMenu.li2 {
     background-color: #5f6368;
     color: black;
+}
+
+.iconoMenu.li3 {
+    background-color: pink;
+    color: rebeccapurple;
+}
+
+#botonMenuCuenta {
+    margin-left: 0px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#botonMenuCuenta:hover {
+    background-color: white;
 }
 
 #passwordCuenta {
@@ -818,18 +840,18 @@ Pagina Cuenta
 .filaDato:first-child {
     border-radius: 20px 20px 5px 5px;
 
-    & .icono  {
+    & .icono {
         & .inicialGrande {
-        font-weight: 700;
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        background-color: #1260A4;
-        color:white;
-        text-align: center;
-        line-height: 60px;
+            font-weight: 700;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            background-color: #1260A4;
+            color: white;
+            text-align: center;
+            line-height: 60px;
         }
-        
+
     }
 }
 
@@ -885,7 +907,7 @@ Pagina Cuenta
 
 /* se muestra el boton con el hover */
 .filaDesplegable:hover .desplegable {
-    max-height: 100px; 
+    max-height: 100px;
     margin-top: 15px;
     opacity: 1;
 }
@@ -906,8 +928,39 @@ Pagina Cuenta
     border-color: #d2e3fc;
 }
 
+.mensajeExitoDiv {
+    background-color: #e6f4ea;
+    color: #137333;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size: 14px;
+    border: 1px solid #ceead6;
+}
+.mensajeExitoP {
+    margin: 0 auto;
+    text-align: center;
+}
+
 /* Final Cuenta=====================================================*/
 
+
+/* Página Borrar=====================================================*/
+.textoBorrarUsuario {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    padding: 40px;
+}
+
+.errorBorrar {
+    color: var(--colorRojo);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Fin página Borrar=====================================================*/
 
 /*Estilos para las variables superGlobales*/
 section {

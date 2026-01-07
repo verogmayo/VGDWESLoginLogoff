@@ -1,7 +1,7 @@
 </header>
 <main class="mainForm">
     <section class="formularioRegistro">
-        <div class="imagen"><img src="webroot/images/logo.png" alt="logo" />
+        <div class="imagen"><img src="webroot/images/logoV2.png" alt="logo" />
             <p class="pInicioSession"> Inicia Sesión en Login Logoff</p>
         </div>
         <form class="form" action="indexLoginLogoff.php" method="post">

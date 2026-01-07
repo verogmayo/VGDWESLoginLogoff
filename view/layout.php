@@ -2,7 +2,7 @@
 
 /**
  * @author: Véro Grué
- * @since: 15/12/2025
+ * @since: 07/01/2026
  */
 ?>
 
@@ -55,7 +55,7 @@
                             2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p>
                         <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a>
                             Fecha de Actualización :
-                            <time datetime="2025-12-15"></time> 15-12-2025
+                            <time datetime="2025-12-15"></time> 07-01-2026
                         </address>
                     </div>
                     <div class="google">
