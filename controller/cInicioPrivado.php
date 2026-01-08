@@ -30,6 +30,13 @@ if(isset($_REQUEST['cuenta'])){
     header('Location: indexLoginLogoff.php');
     exit;
 }
+//Se crea un array con los datos del usuario para pasarlos a la vista
+$avInicioPrivado=[
+    'descUsuario' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getDescUsuario(),
+    'numConexiones' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getNumAccesos(),
+    'fechaAnterior' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getFechaHoraUltimaConexionAnterior()
+];
+//Se cargará la vista y está dispondrá de los datos del usuario en el array $avInicioPrivado
 
 // cargamos el layout principal, y cargará cada página a parte de la estructura principal de la web
 require_once $view['layout'];
