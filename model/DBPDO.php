@@ -19,6 +19,9 @@ class DBPDO {
 
             return $consulta;
         }catch (PDOException $e) {
+            $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso'];
+            $_SESSION['paginaEnCurso']='error';
+            $_SESSION['error']=
             throw new Exception("Error BD: " . $e->getMessage());
         }
 

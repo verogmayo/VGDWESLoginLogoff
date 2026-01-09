@@ -27,8 +27,8 @@
                     //IntlDateFormatter::NONE - no muestra la hora
                     $oFormatoFecha = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
 
-                    $fecha = $oFormatoFecha->format($avInicioPrivado['fechaAnterior']);
-                    $hora = $avInicioPrivado['fechaAnterior']->format('H:i');
+                    $fecha = $oFormatoFecha->format($avInicioPrivado['fechaHoraUltimaConexionAnterior']);
+                    $hora = $avInicioPrivado['fechaHoraUltimaConexionAnterior']->format('H:i');
                     echo "Esta es la vez número " . $avInicioPrivado['numConexiones'] . " que se conecta.<br>";
                     echo "Usted se conectó por última vez el <br>";
                     echo $fecha . " a las " . $hora;
