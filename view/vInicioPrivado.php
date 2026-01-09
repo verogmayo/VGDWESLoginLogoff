@@ -22,6 +22,8 @@
                 if ($avInicioPrivado['fechaAnterior'] instanceof DateTime) {
                     // Formatear la fecha y hora según la configuración regional española
                     //IntlDateFormatter::FULL - muestra la fecha completa (día de la semana, día, mes y año)
+                    //IntlDateFormatter::LONG - mostraría la fecha (día, mes y año)
+                    //IntlDateFormatter::MEDIUM - mostraría la fecha abreviada (ejemplo:12 ene 2025)
                     //IntlDateFormatter::NONE - no muestra la hora
                     $oFormatoFecha = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
 
