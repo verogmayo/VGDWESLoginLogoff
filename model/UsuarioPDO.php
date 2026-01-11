@@ -40,6 +40,7 @@ class UsuarioPDO
                 ':usuario'  => $codUsuario,
                 ':password' => $codUsuario . $password
             ]);
+            
 
             // Obtener el resultado
             $usuarioDB = $consulta->fetch(PDO::FETCH_ASSOC);

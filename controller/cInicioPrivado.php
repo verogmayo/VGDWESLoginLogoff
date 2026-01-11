@@ -1,4 +1,6 @@
 <?php
+// var_dump($_SESSION['usuarioVGDAWAppLoginLogoff']); 
+// die();
 /**
 * @author: Véro Grué
 * @since: 03/01/2026
@@ -30,6 +32,32 @@ if(isset($_REQUEST['cuenta'])){
     header('Location: indexLoginLogoff.php');
     exit;
 }
+
+// Se comprueba si el botón "error" ha sido pulsado.
+if(isset($_REQUEST['error'])){
+    $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
+    // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
+    $consultaError = "SELECT * FROM T03_Cuestion";
+    DBPDO::ejecutarConsulta($consultaError);
+    $_SESSION['paginaEnCurso'] = 'error';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+// Se comprueba si el botón "dpto" ha sido pulsado.
+if(isset($_REQUEST['dpto'])){
+    $_SESSION['paginaAnterior'] =$_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'wip';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
+//Se crea un array con los datos del usuario para pasarlos a la vista
+$avInicioPrivado=[
+    'descUsuario' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getDescUsuario(),
+    'numConexiones' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getNumAccesos(),
+    'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getFechaHoraUltimaConexionAnterior()
+];
+//Se cargará la vista y está dispondrá de los datos del usuario en el array $avInicioPrivado
 
 // cargamos el layout principal, y cargará cada página a parte de la estructura principal de la web
 require_once $view['layout'];

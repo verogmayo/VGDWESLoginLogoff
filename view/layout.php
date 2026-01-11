@@ -16,7 +16,13 @@
     <!--Fuente de google font-->
     <!--Para descargar iconos. https://v2.boxicons.com/usage  (import the css)-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="webroot/css/styles.css">
+
+    <?php if ($_SESSION['paginaEnCurso'] === 'error' || $_SESSION['paginaEnCurso'] === 'wip'): ?>
+        <!-- estilos de la pagina de errores -->
+        <link rel="stylesheet" href="webroot/css/errorStyle.css">
+    <?php else: ?>
+        <link rel="stylesheet" href="webroot/css/styles.css">
+    <?php endif; ?>
     <!--https://cdnjs.com/libraries/font-awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
@@ -25,18 +31,19 @@
     <!-- personalización del header en función de la pagina -->
     <header class="headerComun <?php echo ($_SESSION['paginaEnCurso'] == 'cuenta') ? 'headerCuenta' : ''; ?>">
         <div class="proyecto">
-            <?php if ($_SESSION['paginaEnCurso'] == 'cuenta'){ ?>
+            <?php if ($_SESSION['paginaEnCurso'] == 'cuenta' ) { ?>
                 <!-- En la página cuenta aparecerá la palabra cuenta al ldo del logo -->
                 <p id="textoCuentaLogo">LOGIN<span>&nbsp;</span>LOGOFF
-                <span id="textoCuenta">Cuenta</span></p>
-             <?php } else{ ?>   
-            <p class="letras">
-                <span>L</span><span>O</span><span>G</span><span>I</span><span>N</span>
-                <span>&nbsp;</span>
-                <span>L</span><span>O</span><span>G</span><span>O</span><span>F</span><span>F</span>
+                    <span id="textoCuenta">Cuenta</span>
+                </p>
+            <?php } else { ?>
+                <p class="letras">
+                    <span>L</span><span>O</span><span>G</span><span>I</span><span>N</span>
+                    <span>&nbsp;</span>
+                    <span>L</span><span>O</span><span>G</span><span>O</span><span>F</span><span>F</span>
                 <?php } ?>
-            </p>
-            
+                </p>
+
         </div>
         <!-- </header> -->
         <?php require_once $view[$_SESSION['paginaEnCurso']]; ?>

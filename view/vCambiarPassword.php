@@ -1,7 +1,7 @@
 </header>
 <main class="mainForm">
     <section class="formularioRegistro">
-        <div class="imagen"><img src="webroot/images/logo.png" alt="logo" />
+        <div class="imagen"><img src="webroot/images/logoV2.png" alt="logo" />
             <p class="pInicioSession"> Cambiar contraseña en Login Logoff</p>
         </div>
         <form class="form" action="indexLoginLogoff.php" method="post">
@@ -10,7 +10,6 @@
                 <input name="passwordActual" id="passwordActual" type="password" placeholder=" " value=''>
                 <label for="passwordActual">Contraseña actual: </label>
             </div>
-
             <div class="contenedorInput">
                 <a style='color:red'><?php echo $aErrores['password'] ?></a><br>
                 <input name="password" id="password" type="password" placeholder=" " value=''>
@@ -26,7 +25,6 @@
                 <div class="botonVolverLogin">
                     <button id="botonVolverLogin" class="botonAzul" type="submit" name="volver">Volver</button>
                 </div>
-
             </div>
         </form>
     </section>
