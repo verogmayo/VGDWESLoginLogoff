@@ -7,7 +7,6 @@
 
 require_once 'core/libreriaValidacion.php';
 require_once 'core/miLibreriaStatic.php';
-//require_once 'config/confDBPDODes.php';
 
 $controller = [
   'inicioPublico' => 'controller/cInicioPublico.php',
@@ -17,7 +16,9 @@ $controller = [
   'registro' => 'controller/cRegistro.php',
   'cuenta' => 'controller/cCuenta.php',
   'cambiarPassword' => 'controller/cCambiarPassword.php',
-  'borrarCuenta' => 'controller/cBorrarCuenta.php'
+  'borrarCuenta' => 'controller/cBorrarCuenta.php',
+  'error' => 'controller/cError.php',
+  'wip' => 'controller/cWIP.php'
 ];
 
 $view = [
@@ -29,7 +30,8 @@ $view = [
   'registro' => 'view/vRegistro.php',
   'cuenta' => 'view/vCuenta.php',
   'cambiarPassword' => 'view/vCambiarPassword.php',
-  'borrarCuenta' => 'view/vBorrarCuenta.php'
-];
+  'borrarCuenta' => 'view/vBorrarCuenta.php',
+  'error' => 'view/vError.php',
+  'wip' => 'view/vWIP.php'
+];  
 ?>
-

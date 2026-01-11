@@ -36,11 +36,11 @@ class UsuarioPDO
 
         try {
             // Ejecutar la consulta
-            // $consulta = DBPDO::ejecutarConsulta($sql, [
-            //     ':usuario'  => $codUsuario,
-            //     ':password' => $codUsuario . $password
-            // ]);
-             $consulta = DBPDO::ejecutarConsulta($sql);
+            $consulta = DBPDO::ejecutarConsulta($sql, [
+                ':usuario'  => $codUsuario,
+                ':password' => $codUsuario . $password
+            ]);
+            
 
             // Obtener el resultado
             $usuarioDB = $consulta->fetch(PDO::FETCH_ASSOC);

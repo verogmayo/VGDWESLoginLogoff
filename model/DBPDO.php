@@ -1,4 +1,5 @@
 <?php
+
 /**
 * @author: Véro Grué
 * @since: 18/12/2025
@@ -21,8 +22,9 @@ class DBPDO {
         }catch (PDOException $e) {
             $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso'];
             $_SESSION['paginaEnCurso']='error';
-            $_SESSION['error']=
-            throw new Exception("Error BD: " . $e->getMessage());
+            $_SESSION['error']= new AppError($e->getCode(),$e->getMessage(),$e->getFile(),$e->getLine(), $_SESSION['paginaAnterior']);
+            header('Location: indexLoginLogoff.php');
+            exit;
         }
 
     }

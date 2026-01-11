@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-:root{
+
+:root {
     margin: 0;
     padding: 0;
     --colorRojo: #EA4335;
@@ -12,7 +13,7 @@
     --gray: #959695;
 }
 
-body{
+body {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -23,7 +24,27 @@ body{
     background-color: var(--white);
 }
 
-.error_container{
+header {
+    display: none;
+}
+.container {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #4285F4;
+}
+
+.botonCentral {
+    font: inherit;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--blue);
+    color: var(--white);
+    margin-top: 20px;
+}   
+
+.error_container {
     max-width: 800px;
     display: flex;
     flex-direction: column;
@@ -33,7 +54,7 @@ body{
     margin: 0 10px;
 }
 
-.error_code{
+.error_code {
     width: 100%;
     margin: 0 auto;
     font-size: 6rem;
@@ -42,35 +63,43 @@ body{
     justify-content: center;
     align-items: center;
     gap: 10px;
+
+    
+}
+.error_message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--gray);
 }
 
-p:first-of-type{
+#pError1 {
     animation: fall 1s linear;
     transform: rotateZ(-20deg);
     color: var(--colorAzul2);
 }
 
-P:last-of-type{
+#pError3 {
     animation: fall 1.8s linear;
     transform: rotateZ(8deg);
-    color:var(--colorVerde);
+    color: var(--colorVerde);
 }
 
-p:nth-of-type(2){
+#pError2 {
     color: var(--blue);
     animation: bounce 1.2s 1.8s linear forwards;
     opacity: 0;
     color: var(--colorAmarillo);
 }
 
-.error_title{
+.error_title {
     font-size: 1.5rem;
     font-weight: 700;
     pad: 0 3%;
     color: var(--colorRojo);
 }
 
-.error_description{
+.error_description {
     font-size: 0.9rem;
     text-align: justify;
     line-height: 1.6;
@@ -78,7 +107,7 @@ p:nth-of-type(2){
     color: var(--gray);
 }
 
-.action{
+.action {
     font: inherit;
     padding: 10px 30px;
     border: none;
@@ -88,41 +117,58 @@ p:nth-of-type(2){
     color: var(--white);
 }
 
-.action:hover{
+.action:hover {
     opacity: 0.8;
 }
 
 @media screen and (min-width: 48rem) {
-    .error_description{
+    .error_description {
         padding: 0;
     }
-    
+
 }
-@keyframes fall{
-    0%{
+
+@keyframes fall {
+    0% {
         transform: translateY(-100vh);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }
 
-@keyframes bounce{
-    0%,40%,75%,95%{
+@keyframes bounce {
+
+    0%,
+    40%,
+    75%,
+    95% {
         transform: translateY(0);
         opacity: 1;
     }
-    15%{
+
+    15% {
         transform: translateY(-25px);
     }
-    65%{
+
+    65% {
         transform: translateY(-15px);
     }
-    85%{
+
+    85% {
         transform: translateY(-5px);
     }
-    100%{
+
+    100% {
         transform: rotateZ(45deg);
         opacity: 1;
     }
+}
+
+
+
+/*Estilos del footer*/
+footer {
+   display: none;
 }
