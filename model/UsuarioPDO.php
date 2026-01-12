@@ -65,8 +65,7 @@ class UsuarioPDO
                 $usuarioDB['T01_ImagenUsuario']
             );
 
-            // Actualizar la última conexión en la BD y en el objeto
-            self::actualizarUltimaConexion($oUsuario);
+           
 
             return $oUsuario;
         } catch (Exception $e) {
@@ -79,7 +78,7 @@ class UsuarioPDO
      * Actualiza la fecha de última conexión y el contador de accesos
      * @param Usuario $oUsuario Objeto usuario a actualizar
      */
-    private static function actualizarUltimaConexion($oUsuario)
+    public static function actualizarUltimaConexion($oUsuario)
     {
 
         // SQL para actualizar los datos de conexión

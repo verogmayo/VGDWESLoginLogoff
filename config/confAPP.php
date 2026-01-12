@@ -7,6 +7,10 @@
 
 require_once 'core/libreriaValidacion.php';
 require_once 'core/miLibreriaStatic.php';
+//Cargamos la definición de la clase
+require_once 'model/Usuario.php'; 
+require_once 'model/UsuarioPDO.php';
+require_once 'model/AppError.php';
 
 $controller = [
   'inicioPublico' => 'controller/cInicioPublico.php',
