@@ -15,7 +15,7 @@
 
                     echo "<h2>BIENVENIDO/A " . $avInicioPrivado['descUsuario'] . "</h2>";
 
-                    if ($avInicioPrivado['numConexiones'] <= 1) {
+                    if ($avInicioPrivado['numAccesos'] <= 1) {
                         echo "¡Esta es tu primera conexión!<br>";
                     } else {
                         // Si fechaAnterior ya es un objeto DateTime no hace falta hacer el "new DateTime", se puede usar:
@@ -29,7 +29,7 @@
 
                             $fecha = $oFormatoFecha->format($avInicioPrivado['fechaHoraUltimaConexionAnterior']);
                             $hora = $avInicioPrivado['fechaHoraUltimaConexionAnterior']->format('H:i');
-                            echo "Esta es la vez número " . $avInicioPrivado['numConexiones'] . " que se conecta.<br>";
+                            echo "Esta es la vez número " . $avInicioPrivado['numAccesos'] . " que se conecta.<br>";
                             echo "Usted se conectó por última vez el <br>";
                             echo $fecha . " a las " . $hora;
                         }

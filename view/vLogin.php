@@ -16,8 +16,8 @@
         <form class="form" action="indexLoginLogoff.php" method="post">
             <div class="contenedorInput">
                 <a style='color:red'></a><br>
-                <input name="usuario" id="usuario" type="text" placeholder=" " value=''>
-                <label for="usuario">Usuario:</label>
+                <input name="codUsuario" id="codUsuario" type="text" placeholder=" " value=''>
+                <label for="codUsuario">Usuario:</label>
             </div>
             <div class="contenedorInput">
                 <a style='color:red'></a><br>
