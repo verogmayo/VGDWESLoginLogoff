@@ -38,6 +38,16 @@ if(isset($_REQUEST['borrarCuenta'])){
     header('Location: indexLoginLogoff.php');
     exit;
 }
+$avCuenta = [
+    'codUsuario' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getCodUsuario(),
+    'descUsuario' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getDescUsuario(),
+    'numAccesos' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getNumAccesos(),
+    'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getFechaHoraUltimaConexionAnterior(),
+    'fechaHoraUltimaConexion' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getFechaHoraUltimaConexion(),
+    'perfil' =>$_SESSION['usuarioVGDAWAppLoginLogoff']->getPerfil(),
+    'imagenUsuario' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getImagenUsuario(),
+    'inicial' => $_SESSION['inicialVGDAW']
+];
 // cargamos el layout principal, y cargará cada página a parte de la estructura principal de la web
 require_once $view['layout'];
 

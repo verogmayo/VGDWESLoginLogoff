@@ -37,12 +37,6 @@
                             Información personal
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="menuCuenta ">
-                            <span class="iconoMenu li2"><i class="fa-solid fa-shield-halved"></i></span>
-                            Seguridad
-                        </a>
-                    </li>
                     <form method="post">
                         <li>
                             <button type="submit" name="borrarCuenta" class="menuCuenta"
@@ -66,19 +60,19 @@
                         <div class="etiqueta">FOTO</div>
                         <div class="valor">Añade una foto de perfil para personalizar tu cuenta</div>
                         <div class="icono">
-                            <div class="inicialGrande"><?php echo $_SESSION['inicialVGDAW']; ?></div>
+                            <div class="inicialGrande"><?php echo $avCuenta['inicial'] ?></div>
                         </div>
                     </div>
 
                     <div class="filaDato">
                         <div class="etiqueta">NOMBRE</div>
-                        <div class="valor"><?php echo $_SESSION['usuarioVGDAWAppLoginLogoff']->getDescUsuario(); ?></div>
+                        <div class="valor"><?php echo $avCuenta['descUsuario'] ?></div>
                         <div class="icono"><span>&rsaquo;</span></div>
                     </div>
 
                     <div class="filaDato">
                         <div class="etiqueta">USUARIO</div>
-                        <div class="valor"><?php echo $_SESSION['usuarioVGDAWAppLoginLogoff']->getCodUsuario(); ?></div>
+                        <input name="codUsuario" id="codUsuario" type="text" placeholder=" " value='<?php echo $avCuenta['codUsuario'] ?>'>
                         <div class="icono"><span>&rsaquo;</span></div>
                     </div>
                     <div class="filaDato filaDesplegable">
@@ -94,8 +88,14 @@
 
                     <div class="filaDato">
                         <div class="etiqueta">PERFIL</div>
-                        <div class="valor"><?php echo $_SESSION['usuarioVGDAWAppLoginLogoff']->getPerfil(); ?></div>
+                        <div class="valor"><?php echo $avCuenta['perfil'] ?></div>
                         <div class="icono"><span>&rsaquo;</span></div>
+                    </div>
+                </div>
+                <div class="divBotones">
+                    <button id="botonSessionLogin" class="botonSession" type="submit" name="enviar">Enviar</button>
+                    <div class="botonVolverLogin">
+                        <button id="botonVolverLogin" class="botonAzul" type="submit" name="volver">Volver</button>
                     </div>
                 </div>
             </form>
