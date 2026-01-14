@@ -30,14 +30,14 @@ class UsuarioPDO
                 T01_Perfil,
                 T01_ImagenUsuario
             FROM T01_Usuario
-            WHERE T01_CodUsuario = :usuario
+            WHERE T01_CodUsuario = :codUsuario
               AND T01_Password = SHA2(:password, 256)
         SQL;
 
         try {
             // Ejecutar la consulta
             $consulta = DBPDO::ejecutarConsulta($sql, [
-                ':usuario'  => $codUsuario,
+                ':codUsuario'  => $codUsuario,
                 ':password' => $codUsuario . $password
             ]);
             
@@ -62,11 +62,11 @@ class UsuarioPDO
                 $oFechaValida,
                 null,                                         // fechaHoraUltimaConexionAnterior (empieza en null)
                 $usuarioDB['T01_Perfil'],
-                $usuarioDB['T01_ImagenUsuario']
+                $usuarioDB['T01_ImagenUsuario'],
+                mb_strtoupper(mb_substr($usuarioDB['T01_DescUsuario'], 0, 1))
             );
 
-            // Actualizar la última conexión en la BD y en el objeto
-            self::actualizarUltimaConexion($oUsuario);
+           
 
             return $oUsuario;
         } catch (Exception $e) {
@@ -78,8 +78,9 @@ class UsuarioPDO
     /**
      * Actualiza la fecha de última conexión y el contador de accesos
      * @param Usuario $oUsuario Objeto usuario a actualizar
+     * @return Usuario|null Objeto Usuario con la fecha de ultimaactualización actualizada 
      */
-    private static function actualizarUltimaConexion($oUsuario)
+    public static function actualizarUltimaConexion($oUsuario)
     {
 
         // SQL para actualizar los datos de conexión
@@ -87,13 +88,13 @@ class UsuarioPDO
             UPDATE T01_Usuario SET
                 T01_FechaHoraUltimaConexion = NOW(),
                 T01_NumConexiones = T01_NumConexiones + 1
-            WHERE T01_CodUsuario = :usuario
+            WHERE T01_CodUsuario = :codUsuario
         SQL;
 
 
         // Ejecutar la actualización en la BD
         DBPDO::ejecutarConsulta($sql, [
-            ':usuario' => $oUsuario->getCodUsuario()
+            ':codUsuario' => $oUsuario->getCodUsuario()
         ]);
 
         // Actualizar el objeto Usuario en memoria
@@ -106,6 +107,7 @@ class UsuarioPDO
         // Establecer la nueva fecha de conexión (ahora)
         date_default_timezone_set('Europe/Madrid');
         $oUsuario->setFechaHoraUltimaConexion(new DateTime());
+        return $oUsuario;
     }
 
     /**
@@ -123,14 +125,14 @@ class UsuarioPDO
         // El perfil por defecto debe ser 'usuario'
         $sql = <<<SQL
             INSERT INTO T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil) 
-            VALUES (:usuario, SHA2(:password, 256), :descripcion, 'usuario')
+            VALUES (:codUsuario, SHA2(:password, 256), :descUsuario, 'usuario')
         SQL;
 
         try {
             $consulta = DBPDO::ejecutarConsulta($sql, [
-                ':usuario' => $codUsuario,
+                ':codUsuario' => $codUsuario,
                 ':password' => $codUsuario . $password,
-                ':descripcion' => $descUsuario
+                ':descUsuario' => $descUsuario
             ]);
 
             if ($consulta) {
@@ -153,11 +155,11 @@ class UsuarioPDO
     public static function validarCodigoNoExiste($codUsuario)
     {
         $existe = false;
-        $sql = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario = :usuario";
+        $sql = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario = :codUsuario";
 
         try {
             //si la consulta devuelve alguna fila es que el codigo ya existe
-            $consulta = DBPDO::ejecutarConsulta($sql, [':usuario' => $codUsuario]);
+            $consulta = DBPDO::ejecutarConsulta($sql, [':codUsuario' => $codUsuario]);
             if ($consulta->rowCount() > 0) {
                 $existe = true;
             }
@@ -170,7 +172,7 @@ class UsuarioPDO
     /**
      * Cambia la contraseña de un usuario existente
      * @param Usuario $oUsuario Objeto del usuario actual
-     * @param string $nuevaPassword Nueva contraseña sin encriptar
+     * @param string $nuevaPassword Nueva contraseña
      * @return Usuario|null El objeto usuario actualizado o null si falla
      */
     public static function cambiarPassword($oUsuario, $nuevaPassword)
@@ -178,12 +180,12 @@ class UsuarioPDO
         $sql = <<<SQL
         UPDATE T01_Usuario SET 
             T01_Password = SHA2(:password, 256)
-        WHERE T01_CodUsuario = :usuario
+        WHERE T01_CodUsuario = :codUsuario
     SQL;
 
         try {
             $consulta = DBPDO::ejecutarConsulta($sql, [
-                ':usuario' => $oUsuario->getCodUsuario(),
+                ':codUsuario' => $oUsuario->getCodUsuario(),
                 ':password' => $oUsuario->getCodUsuario() . $nuevaPassword
             ]);
 
@@ -205,11 +207,11 @@ class UsuarioPDO
      */
     public static function borrarUsuario($oUsuario)
     {
-        $sql = "DELETE FROM T01_Usuario WHERE T01_CodUsuario = :usuario";
+        $sql = "DELETE FROM T01_Usuario WHERE T01_CodUsuario = :codUsuario";
 
         try {
             $consulta = DBPDO::ejecutarConsulta($sql, [
-                ':usuario' => $oUsuario->getCodUsuario()
+                ':codUsuario' => $oUsuario->getCodUsuario()
             ]);
 
             // rowCount() para ver si se borro la fila
@@ -220,5 +222,33 @@ class UsuarioPDO
             return false;
         }
         return false;
+    }
+
+    /**
+     * Modifica la descripción del usuario de la base de datos
+     * @param Usuario $oUsuario Objeto del usuario a modificar
+     * @param string $nuevoNombre nuevo nombre del usuario
+     * @return boolean True si se borró correctamente, false si no se borró
+     */
+    public static function modificarUsuario($oUsuario, $nuevoNombre)
+    {
+        $sql = "UPDATE T01_Usuario SET T01_DescUsuario = :nuevaDesc WHERE T01_CodUsuario = :descUsuario";
+
+        try {
+            $consulta = DBPDO::ejecutarConsulta($sql, [
+                ':nuevaDesc' => $nuevoNombre,
+                ':descUsuario' => $oUsuario->getCodUsuario()
+            ]);
+
+            
+            if ($consulta) {
+                //Se actualiza la descripcion del usuario
+                $oUsuario->setDescUsuario($nuevoNombre);
+                return $oUsuario;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+        return null;
     }
 }

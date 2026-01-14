@@ -21,9 +21,9 @@
                 <label for="confirmaPassword">Confirmar contraseña: </label>
             </div>
             <div class="divBotones">
-                <button id="botonSessionLogin" class="botonSession" type="submit" name="enviar">Enviar</button>
+                <button id="botonSessionLogin" class="botonSession" type="submit" name="enviar">Aceptar</button>
                 <div class="botonVolverLogin">
-                    <button id="botonVolverLogin" class="botonAzul" type="submit" name="volver">Volver</button>
+                    <button id="botonVolverLogin" class="botonAzul" type="submit" name="volver">Cancelar</button>
                 </div>
             </div>
         </form>

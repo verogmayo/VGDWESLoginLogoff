@@ -7,10 +7,7 @@
 // Se cargan los archivos de configuración
 require_once  'config/confAPP.php';
 require_once  'config/confDBPDODes.php';
-//Cargamos la definición de la clase
-require_once 'model/Usuario.php'; 
-require_once 'model/UsuarioPDO.php';
-require_once 'model/AppError.php';
+
 
 // SE inicia session
 session_start();

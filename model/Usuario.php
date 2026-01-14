@@ -12,9 +12,10 @@ class Usuario{
     private $fechaHoraUltimaConexionAnterior;
     private $perfil;
     private $imagenUsuario;
+    private $inicial;
 
 
-    public function __construct($codUsuario, $password, $descUsuario , $numAccesos , $fechaHoraUltimaConexion, $fechaHoraUltimaConexionAnterior, $perfil, $imagenUsuario) {
+    public function __construct($codUsuario, $password, $descUsuario , $numAccesos , $fechaHoraUltimaConexion, $fechaHoraUltimaConexionAnterior, $perfil, $imagenUsuario, $inicial) {
         $this->codUsuario = $codUsuario;
         $this->password = $password;
         $this->descUsuario = $descUsuario;
@@ -23,6 +24,7 @@ class Usuario{
         $this->fechaHoraUltimaConexionAnterior = $fechaHoraUltimaConexionAnterior;
         $this->perfil = $perfil;
         $this->imagenUsuario = $imagenUsuario;
+        $this->inicial = mb_strtoupper(mb_substr($descUsuario, 0, 1));
     }
 
     //getters y setters
@@ -57,6 +59,9 @@ class Usuario{
     public function getImagenUsuario(){
         return $this->imagenUsuario;
     }
+    public function getInicial() {
+        return $this->inicial;
+    }
 
 
     public function setCodUsuario($codUsuario){
@@ -68,6 +73,7 @@ class Usuario{
     }
     public function setDescUsuario($descUsuario){
          $this->descUsuario = $descUsuario;
+         $this->inicial = mb_strtoupper(mb_substr($descUsuario, 0, 1));
 
     }
     public function setnumAccesos($numAccesos){
