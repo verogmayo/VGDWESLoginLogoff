@@ -5,7 +5,7 @@
     <div id="botonVolverCuentadiv">
         <button id="botonVolverCuenta" class="botonAzul" type="submit" name="volver">Volver</button>
     </div>
-    <button id="botonCuenta" class="botonCuenta" type="submit" name="cuenta"><?php echo $_SESSION['inicialVGDAW']; ?></button>
+    <button id="botonCuenta" class="botonCuenta" type="submit" name="cuenta"><?php echo $avCuenta['inicial']; ?></button>
     <button id="botonSessionIPrivado" class="botonSession" type="submit" name="cerrar">Cerrar Sessión</button>
 </form>
 
@@ -60,20 +60,20 @@
                         <div class="etiqueta">FOTO</div>
                         <div class="valor">Añade una foto de perfil para personalizar tu cuenta</div>
                         <div class="icono">
-                            <div class="inicialGrande"><?php echo $avCuenta['inicial'] ?></div>
+                            <div class="inicialGrande"><?php echo $avCuenta['inicial']; ?></div>
                         </div>
                     </div>
 
                     <div class="filaDato">
                         <div class="etiqueta">NOMBRE</div>
-                        <div class="valor"><?php echo $avCuenta['descUsuario'] ?></div>
-                        <div class="icono"><span>&rsaquo;</span></div>
+                        <input name="descUsuario" id="descUsuario" type="text" placeholder=" " value='<?php echo $avCuenta['descUsuario'] ?>'>
+                        <div class="icono"><span></span></div>
                     </div>
 
                     <div class="filaDato">
                         <div class="etiqueta">USUARIO</div>
-                        <input name="codUsuario" id="codUsuario" type="text" placeholder=" " value='<?php echo $avCuenta['codUsuario'] ?>'>
-                        <div class="icono"><span>&rsaquo;</span></div>
+                        <input name="codUsuario" id="codUsuario" type="text" placeholder=" " value='<?php echo $avCuenta['codUsuario'] ?>' disabled>
+                        <div class="icono"><span></span></div>
                     </div>
                     <div class="filaDato filaDesplegable">
                         <div class="etiqueta">CONTRASEÑA</div>
@@ -88,14 +88,30 @@
 
                     <div class="filaDato">
                         <div class="etiqueta">PERFIL</div>
-                        <div class="valor"><?php echo $avCuenta['perfil'] ?></div>
-                        <div class="icono"><span>&rsaquo;</span></div>
+                        <input name="perfil" id="perfil" type="text" placeholder=" " value='<?php echo $avCuenta['perfil'] ?>' disabled>
+                        <div class="valor"></div>
+                        <div class="icono"><span></span></div>
+                    </div>
+                    <div class="filaDato">
+                        <div class="etiqueta">NUMERO DE CONEXIONES</div>
+                        <input name="numAccesos" id="numAccesos" type="number" placeholder=" " value='<?php echo $avCuenta['numAccesos'] ?>' disabled>
+                        <div class="icono"><span></span></div>
+                    </div>
+                    <div class="filaDato">
+                        <div class="etiqueta">FECHA Y HORA DE LA ULTIMA CONEXIÓN</div>
+                        <input type="datetime" name="fechaHoraUltimaConexion" id="fechaHoraUltimaConexion" value='<?php echo $avCuenta['fechaHoraUltimaConexion'] ?>' disabled>
+                        <div class="icono"><span></span></div>
+                    </div>
+                    <div class="filaDato">
+                        <div class="etiqueta">FECHA Y HORA DE LA ULTIMA CONEXIÓN ANTERIOR</div>
+                        <input type="datetime" name="fechaHoraUltimaConexionAnterior" id="fechaHoraUltimaConexionAnterior" value='<?php echo $avCuenta['fechaHoraUltimaConexionAnterior'] ?>' disabled>
+                        <div class="icono"><span></span></div>
                     </div>
                 </div>
                 <div class="divBotones">
                     <button id="botonSessionLogin" class="botonSession" type="submit" name="enviar">Enviar</button>
                     <div class="botonVolverLogin">
-                        <button id="botonVolverLogin" class="botonAzul" type="submit" name="volver">Volver</button>
+                        <button id="botonVolverLogin" class="botonAzul" type="submit" name="cancelar">Volver</button>
                     </div>
                 </div>
             </form>

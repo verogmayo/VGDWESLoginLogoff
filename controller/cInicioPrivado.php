@@ -55,7 +55,8 @@ if(isset($_REQUEST['dpto'])){
 $avInicioPrivado=[
     'descUsuario' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getDescUsuario(),
     'numAccesos' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getNumAccesos(),
-    'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getFechaHoraUltimaConexionAnterior()
+    'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getFechaHoraUltimaConexionAnterior(),
+    'inicial' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getInicial()
 ];
 //Se cargará la vista y está dispondrá de los datos del usuario en el array $avInicioPrivado
 

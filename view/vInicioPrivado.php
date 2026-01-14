@@ -3,7 +3,7 @@
 
         </div>
         <form class="botonesDetalles" action="">
-            <button id="botonCuenta" class="botonCuenta" type="submit" name="cuenta"><?php echo $_SESSION['inicialVGDAW']; ?></button>
+            <button id="botonCuenta" class="botonCuenta" type="submit" name="cuenta"><?php echo $avInicioPrivado['inicial']; ?></button>
             <button id="botonSessionIPrivado" class="botonSession" type="submit" name="cerrar">Cerrar Sessión</button>
         </form>
         </header>

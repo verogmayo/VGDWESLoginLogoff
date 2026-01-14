@@ -62,7 +62,8 @@ class UsuarioPDO
                 $oFechaValida,
                 null,                                         // fechaHoraUltimaConexionAnterior (empieza en null)
                 $usuarioDB['T01_Perfil'],
-                $usuarioDB['T01_ImagenUsuario']
+                $usuarioDB['T01_ImagenUsuario'],
+                mb_strtoupper(mb_substr($usuarioDB['T01_DescUsuario'], 0, 1))
             );
 
            
@@ -77,6 +78,7 @@ class UsuarioPDO
     /**
      * Actualiza la fecha de última conexión y el contador de accesos
      * @param Usuario $oUsuario Objeto usuario a actualizar
+     * @return Usuario|null Objeto Usuario con la fecha de ultimaactualización actualizada 
      */
     public static function actualizarUltimaConexion($oUsuario)
     {
@@ -170,7 +172,7 @@ class UsuarioPDO
     /**
      * Cambia la contraseña de un usuario existente
      * @param Usuario $oUsuario Objeto del usuario actual
-     * @param string $nuevaPassword Nueva contraseña sin encriptar
+     * @param string $nuevaPassword Nueva contraseña
      * @return Usuario|null El objeto usuario actualizado o null si falla
      */
     public static function cambiarPassword($oUsuario, $nuevaPassword)
@@ -220,5 +222,33 @@ class UsuarioPDO
             return false;
         }
         return false;
+    }
+
+    /**
+     * Modifica la descripción del usuario de la base de datos
+     * @param Usuario $oUsuario Objeto del usuario a modificar
+     * @param string $nuevoNombre nuevo nombre del usuario
+     * @return boolean True si se borró correctamente, false si no se borró
+     */
+    public static function modificarUsuario($oUsuario, $nuevoNombre)
+    {
+        $sql = "UPDATE T01_Usuario SET T01_DescUsuario = :nuevaDesc WHERE T01_CodUsuario = :descUsuario";
+
+        try {
+            $consulta = DBPDO::ejecutarConsulta($sql, [
+                ':nuevaDesc' => $nuevoNombre,
+                ':descUsuario' => $oUsuario->getCodUsuario()
+            ]);
+
+            
+            if ($consulta) {
+                //Se actualiza la descripcion del usuario
+                $oUsuario->setDescUsuario($nuevoNombre);
+                return $oUsuario;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+        return null;
     }
 }

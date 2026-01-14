@@ -536,7 +536,7 @@ input {
     outline: none;
 }
 
-#usuario,
+#codUsuario,
 #password,
 #nombreCompleto,
 #passwordActual,
@@ -822,7 +822,7 @@ Pagina Cuenta
     display: grid;
     grid-template-columns: 1fr 60px;
     /* Ancho fijo para etiquetas */
-    padding: 18px 24px;
+    padding: 10px 24px;
     align-items: center;
     text-align: left;
     cursor: pointer;
@@ -830,6 +830,14 @@ Pagina Cuenta
     background: white;
     border-radius: 5px 5px 5px 5px;
     grid-column: 2/3;
+    & input{
+        border:none;
+        height: 40px; 
+        margin-bottom: 0px;   
+    }
+    & #codUsuario, #perfil, #fechaHoraUltimaConexionAnterior, #fechaHoraUltimaConexion, #numAccesos{
+            background-color: var(--colorCampoRestringido);
+        }
 }
 
 .filaDato:hover {
