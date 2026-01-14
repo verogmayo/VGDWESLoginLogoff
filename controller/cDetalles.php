@@ -30,6 +30,9 @@ if(isset($_REQUEST['cuenta'])){
     header('Location: indexLoginLogoff.php');
     exit;
 }
+$avDetalles = [
+    'inicial' => $_SESSION['usuarioVGDAWAppLoginLogoff']->getInicial()
+];
 // cargamos el layout principal, y cargará cada página a parte de la estructura principal de la web
 require_once $view['layout'];
 

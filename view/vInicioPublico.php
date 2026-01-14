@@ -30,12 +30,14 @@
         <input type="radio" name="rd" id="rd2">
         <input type="radio" name="rd" id="rd3">
         <input type="radio" name="rd" id="rd4">
+        <input type="radio" name="rd" id="rd5">
 
         <div class="photos">
-            <img src="webroot/images/AppLogin-AppMulticapaV2.png" alt="App Multicapa">
+            <img src="webroot/images/AppLogin-AppMulticapaV3.png" alt="App Multicapa">
             <img src="webroot/images/AppLogin-MapaWeb.png" alt="Mapa Web">
-            <img src="webroot/images/AppLogin-DiagramaClases.png" alt="Diagrama de Clases">
+            <img src="webroot/images/DiagramaDeClases.png" alt="Diagrama de Clases">
             <img src="webroot/images/AppLogin-ModeloFisico.png" alt="Modelo Fisico">
+            <img src="webroot/images/UsoSession.png" alt="UsoSession">
         </div>
     </div>
 </section>
