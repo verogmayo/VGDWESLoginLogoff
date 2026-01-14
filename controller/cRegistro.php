@@ -79,13 +79,14 @@ if (isset($_REQUEST['enviar'])) {
                 exit;
             } else {
                 // Login correcto
+                $oUsuario=UsuarioPDO::actualizarUltimaConexion();
                 $_SESSION['usuarioVGDAWAppLoginLogoff'] = $oUsuario;
                 // Se saca la inicial del usuario aqui para poder utilizarla en el boton de cuenta.
                 // Se saca el nombre del usuario.
-                $nombre = $oUsuario->getDescUsuario();
-                //Se saca la inicial. https://www.php.net/manual/fr/function.mb-strtoupper.php  (caracteres en mayúsculas)
-                //https://www.php.net/manual/fr/function.mb-strtoupper.php (primer caracter)
-                $_SESSION['inicialVGDAW'] = mb_strtoupper(mb_substr($nombre, 0, 1));
+                // $nombre = $oUsuario->getDescUsuario();
+                // //Se saca la inicial. https://www.php.net/manual/fr/function.mb-strtoupper.php  (caracteres en mayúsculas)
+                // //https://www.php.net/manual/fr/function.mb-strtoupper.php (primer caracter)
+                // $_SESSION['inicialVGDAW'] = mb_strtoupper(mb_substr($nombre, 0, 1));
                 $_SESSION['paginaEnCurso'] = 'inicioPrivado';
                 header('Location: indexLoginLogoff.php');
                 exit;
