@@ -79,7 +79,6 @@ if (isset($_REQUEST['enviar'])) {
                 exit;
             } else {
                 // Login correcto
-                $oUsuario=UsuarioPDO::actualizarUltimaConexion();
                 $_SESSION['usuarioVGDAWAppLoginLogoff'] = $oUsuario;
                 // Se saca la inicial del usuario aqui para poder utilizarla en el boton de cuenta.
                 // Se saca el nombre del usuario.

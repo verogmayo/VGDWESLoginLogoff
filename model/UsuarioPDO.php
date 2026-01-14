@@ -124,8 +124,21 @@ class UsuarioPDO
         // SQL para insertar el nuevo registro
         // El perfil por defecto debe ser 'usuario'
         $sql = <<<SQL
-            INSERT INTO T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil) 
-            VALUES (:codUsuario, SHA2(:password, 256), :descUsuario, 'usuario')
+            INSERT INTO T01_Usuario 
+            (T01_CodUsuario, 
+            T01_Password, 
+            T01_DescUsuario, 
+            T01_FechaHoraUltimaConexion,
+            T01_NumConexiones,
+            T01_Perfil             
+            ) 
+            VALUES 
+            (:codUsuario, 
+            SHA2(:password, 256), 
+            :descUsuario,
+            now(),
+            1,
+            'usuario')
         SQL;
 
         try {
