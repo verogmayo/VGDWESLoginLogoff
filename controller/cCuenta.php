@@ -55,15 +55,45 @@ if (isset($_REQUEST['cancelar'])) {
     header('Location: indexLoginLogoff.php');
     exit;
 }
+//Objeto de usuario de la sesión
 $oUsuarioActual = $_SESSION['usuarioVGDAWAppLoginLogoff'];
+
+$aErrores = [
+    'descUsuario' => null
+];
+
+
+$entradaOK = true;
+
+// Se Comprobueba si se ha pulsado el botón enviar
 if (isset($_REQUEST['enviar'])) {
-    //Se coge el nuevo nombre
+    // Validar desde la libreria
+    $aErrores['descUsuario'] = validacionFormularios::comprobarAlfabetico($_REQUEST['descUsuario'], 255, 1, 1);
+    
+    // Si hay algún error, entradaOK false
+    foreach ($aErrores as $error) {
+        if ($error != null) {
+            $entradaOK = false;
+        }
+    }
+} else {
+    // Si no se ha pulsado enviar
+    $entradaOK = false;
+}
+
+// Si todo es correcto
+if ($entradaOK) {
+    
     $nuevoNombre = $_REQUEST['descUsuario'];
-    //Se llama al modelo para actualizar el nombre
+    
+    // Llamada al modelo para actualizar
     $oUsuarioNuevo = UsuarioPDO::modificarUsuario($oUsuarioActual, $nuevoNombre);
-    //Se cambia la descrusuario de la session y se vuelve a  inicio privado
+    
     if ($oUsuarioNuevo) {
+        // Actualizaar la sesión con el nuevo objeto
         $_SESSION['usuarioVGDAWAppLoginLogoff'] = $oUsuarioNuevo;
+        
+        // Redirigir al inicio privado
         $_SESSION['paginaEnCurso'] = 'inicioPrivado';
         header('Location: indexLoginLogoff.php');
         exit;
