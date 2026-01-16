@@ -1069,7 +1069,9 @@ footer .pais {
     display: flex;
     justify-content: space-between;
 }
-
+.phpDoc a{
+    color:#202124;
+}
 .bxl-github {
     font-size: 2rem;
     border-radius: 50%;
