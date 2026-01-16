@@ -558,13 +558,13 @@ input {
 
 #codUsuario,
 #password,
-#nombreCompleto,
+#descUsuario,
 #passwordActual,
 #confirmaPassword {
     background-color: var(--colorCampoObligatorio);
 }
 
-#usuario:not(:placeholder-shown),
+#codUsuario:not(:placeholder-shown),
 #password:not(:placeholder-shown),
 #nombre:not(:placeholder-shown),
 #apellidos:not(:placeholder-shown) {

@@ -6,14 +6,14 @@
         </div>
         <form class="form" action="indexLoginLogoff.php" method="post">
             <div class="contenedorInput">
-                <a style='color:red'><?php echo $aErrores['usuario'] ?></a><br>
-                <input name="usuario" id="usuario" type="text" placeholder=" " value=''>
-                <label for="usuario">Usuario:</label>
+                <a style='color:red'><?php echo $aErrores['codUsuario'] ?></a><br>
+                <input name="codUsuario" id="codUsuario" type="text" placeholder=" " value=''>
+                <label for="codUsuario">Usuario:</label>
             </div>
             <div class="contenedorInput">
-                <a style='color:red'><?php echo $aErrores['nombreCompleto'] ?></a><br>
-                <input name="nombreCompleto" id="nombreCompleto" type="text" placeholder=" " value=''>
-                <label for="nombreCompleto">Nombre Completo:</label>
+                <a style='color:red'><?php echo $aErrores['descUsuario'] ?></a><br>
+                <input name="descUsuario" id="descUsuario" type="text" placeholder=" " value=''>
+                <label for="descUsuario">Nombre Completo:</label>
             </div>
 
             <div class="contenedorInput">

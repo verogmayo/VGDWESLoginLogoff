@@ -66,7 +66,9 @@
 
                     <div class="filaDato">
                         <div class="etiqueta">NOMBRE</div>
+                        
                         <input name="descUsuario" id="descUsuario" type="text" placeholder=" " value='<?php echo $avCuenta['descUsuario'] ?>'>
+                        <a style='color:red'><?php echo $aErrores['descUsuario'] ?></a><br>
                         <div class="icono"><span></span></div>
                     </div>
 
