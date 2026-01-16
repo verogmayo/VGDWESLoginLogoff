@@ -52,7 +52,9 @@
             <div class="footer">
                 <div class="pais">
                     <p>España</p>
+                    <div class="phpDoc"><a href="doc/index.html" target="_blank">phpDocumentor</a></div>
                     <div class="social-media">
+                        
                         <a href="https://github.com/verogmayo/VGDWESLoginLogoff" target="_blank"><i class='bx bxl-github'></i></a>
                     </div>
                 </div>
